@@ -1,0 +1,7 @@
+node_modules
+.turbo
+dist
+.next
+*.tsbuildinfo
+.env*.local
+.env.production
