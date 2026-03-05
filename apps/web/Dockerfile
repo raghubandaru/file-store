@@ -14,6 +14,7 @@ COPY packages/design-system/package.json ./packages/design-system/
 RUN pnpm install --filter web... --frozen-lockfile
 
 # Copy source
+COPY tsconfig.base.json ./
 COPY apps/web ./apps/web
 COPY packages/design-system ./packages/design-system
 
