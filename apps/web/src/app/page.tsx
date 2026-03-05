@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       <h1>This Button component is served from design system package</h1>
-      <Button>Click</Button>
+      <Button>Click here</Button>
     </div>
   );
 }
