@@ -16,6 +16,7 @@ COPY packages/types/package.json ./packages/types/
 RUN pnpm install --filter @file-store/service-auth... --frozen-lockfile
 
 # Copy source
+COPY tsconfig.base.json ./
 COPY services/auth/src ./services/auth/src
 COPY services/auth/tsconfig.json ./services/auth/
 COPY packages/schemas ./packages/schemas

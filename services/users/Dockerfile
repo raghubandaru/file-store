@@ -15,6 +15,7 @@ COPY packages/types/package.json ./packages/types/
 RUN pnpm install --filter @file-store/service-users... --frozen-lockfile
 
 # Copy source
+COPY tsconfig.base.json ./
 COPY services/users/src ./services/users/src
 COPY services/users/tsconfig.json ./services/users/
 COPY packages/types ./packages/types
