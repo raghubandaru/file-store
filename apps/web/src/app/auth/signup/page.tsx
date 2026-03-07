@@ -14,16 +14,19 @@ export default function Signup() {
         {
           name: "name",
           label: "Name",
+          autoComplete: "name",
         },
         {
           name: "email",
           label: "Email",
           type: "email",
+          autoComplete: "email",
         },
         {
           name: "password",
           label: "Password",
           type: "password",
+          autoComplete: "new-password",
         },
       ]}
       footer={

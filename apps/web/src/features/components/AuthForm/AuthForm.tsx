@@ -18,6 +18,7 @@ type FieldDef = {
   name: string;
   label: string;
   type?: string;
+  autoComplete?: string;
 };
 
 type Props = {
@@ -86,6 +87,7 @@ export default function AuthForm({
 
       {fields.map((field) => {
         const fieldError = getFieldError(field.name);
+        const errorId = `${field.name}-error`;
         return (
           <Field key={field.name}>
             <Label htmlFor={field.name}>{field.label}</Label>
@@ -93,13 +95,15 @@ export default function AuthForm({
               id={field.name}
               name={field.name}
               type={field.type || "text"}
+              autoComplete={field.autoComplete}
               value={values[field.name] ?? ""}
               aria-invalid={fieldError ? true : undefined}
+              aria-describedby={fieldError ? errorId : undefined}
               onBlur={(e) => handleBlur(field.name, e.target.value)}
               onChange={(e) => handleChange(field.name, e.target.value)}
             />
             {fieldError && (
-              <p role="alert" className={styles.fieldError}>
+              <p id={errorId} role="alert" className={styles.fieldError}>
                 {fieldError}
               </p>
             )}

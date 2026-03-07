@@ -18,4 +18,6 @@
   --profile-btn-radius: var(--radius-sm);
   --profile-btn-danger-bg: var(--color-error);
   --profile-btn-danger-color: var(--white);
+  --profile-btn-focus-outline: 3px solid var(--color-brand);
+  --profile-btn-danger-focus-outline: 3px solid var(--color-error);
 }

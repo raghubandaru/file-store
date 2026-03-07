@@ -15,7 +15,7 @@ export default async function ProfilePage() {
 
   return (
     <div className={styles.page}>
-      <h1 className={styles.heading}>Profile</h1>
+      <h2 className={styles.heading}>Profile</h2>
 
       <section className={styles.section}>
         <dl className={styles.fields}>

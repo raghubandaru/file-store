@@ -29,7 +29,7 @@ export function FilesList({ files }: { files: TypesFileItem[] }) {
 
   return (
     <>
-      <h1>Your files</h1>
+      <h2>Your files</h2>
       <FileList files={files.map(toDisplayItem)} onDelete={handleDelete} />
     </>
   );

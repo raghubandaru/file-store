@@ -4,8 +4,12 @@
   color: inherit;
   font-size: var(--input-font-size);
   font-family: inherit;
-  border: none;
+  border: var(--input-border);
   line-height: inherit;
+}
+
+.input[aria-invalid="true"] {
+  border: var(--input-border-error);
 }
 
 .input:focus-visible {

@@ -28,7 +28,7 @@ export function DeleteAccount() {
 
   return (
     <section className={styles.dangerZone}>
-      <h2 className={styles.dangerTitle}>Danger zone</h2>
+      <h3 className={styles.dangerTitle}>Danger zone</h3>
 
       {error && (
         <p role="alert" className={styles.error}>
