@@ -1,0 +1,7 @@
+:root {
+  --auth-layout-padding-top: var(--space-4);
+  --auth-layout-card-max-width: 24rem;
+  --auth-layout-card-padding: var(--space-2);
+  --auth-layout-card-border-color: var(--border-default);
+  --auth-layout-card-radius: var(--radius-md);
+}

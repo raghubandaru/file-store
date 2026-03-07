@@ -1,17 +1,19 @@
+@import './tokens.css';
+
 .title {
-  margin-block-end: 1.5rem;
+  margin-block-end: var(--auth-form-title-spacing);
 }
 
 .formError {
-  color: var(--color-error, red);
-  margin-block-end: 1rem;
+  color: var(--auth-form-error-color);
+  margin-block-end: var(--auth-form-field-spacing);
 }
 
 .fieldError {
-  color: var(--color-error, red);
+  color: var(--auth-form-error-color);
   margin: 0;
 }
 
 .footer {
-  margin-block-start: 1rem;
+  margin-block-start: var(--auth-form-footer-spacing);
 }

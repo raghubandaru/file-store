@@ -1,0 +1,10 @@
+:root {
+  --upload-form-min-height: 30rem;
+  --upload-form-gap: var(--space-1);
+  --upload-form-uploading-padding: var(--space-2);
+  --upload-form-error-color: var(--color-error);
+  --upload-form-meta-font-size: var(--font-size-sm);
+  --upload-form-filename-weight: 500;
+  --upload-form-size-color: var(--text-label);
+  --upload-form-actions-gap: 0.75rem;
+}

@@ -1,0 +1,6 @@
+:root {
+  --auth-form-title-spacing: 1.5rem;
+  --auth-form-field-spacing: var(--space-1);
+  --auth-form-footer-spacing: var(--space-1);
+  --auth-form-error-color: var(--color-error);
+}

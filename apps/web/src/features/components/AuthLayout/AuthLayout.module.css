@@ -1,14 +1,16 @@
+@import './tokens.css';
+
 .container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-block-start: 4rem;
+  padding-block-start: var(--auth-layout-padding-top);
 }
 
 .card {
   width: 100%;
-  max-width: 24rem;
-  padding: 2rem;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: var(--radius-md, 0.5rem);
+  max-width: var(--auth-layout-card-max-width);
+  padding: var(--auth-layout-card-padding);
+  border: 1px solid var(--auth-layout-card-border-color);
+  border-radius: var(--auth-layout-card-radius);
 }

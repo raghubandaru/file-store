@@ -1,55 +1,59 @@
+@import './tokens.css';
+
 .page {
   width: 100%;
 }
 
 .heading {
-  margin-block-end: 1.5rem;
+  margin-block-end: var(--profile-heading-spacing);
 }
 
 .section {
-  margin-block-end: 2rem;
+  margin-block-end: var(--profile-section-spacing);
 }
 
 .fields {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--profile-fields-gap);
 }
 
 .fieldRow {
   display: flex;
-  gap: 1rem;
+  gap: var(--profile-field-row-gap);
 }
 
 .fieldLabel {
-  font-weight: 600;
-  min-width: 5rem;
+  font-size: var(--profile-field-font-size);
+  font-weight: var(--profile-field-label-weight);
+  min-width: var(--profile-field-label-width);
 }
 
 .fieldValue {
+  font-size: var(--profile-field-font-size);
   margin: 0;
 }
 
 .dangerZone {
-  border: 1px solid var(--color-error, red);
-  border-radius: var(--radius-md, 0.5rem);
-  padding: 1.5rem;
+  border: 1px solid var(--profile-danger-border-color);
+  border-radius: var(--profile-danger-radius);
+  padding: var(--profile-danger-padding);
 }
 
 .dangerTitle {
-  margin-block-end: 1rem;
-  color: var(--color-error, red);
+  margin-block-end: var(--profile-confirm-gap);
+  color: var(--profile-danger-title-color);
 }
 
 .error {
-  color: var(--color-error, red);
-  margin-block-end: 1rem;
+  color: var(--profile-error-color);
+  margin-block-end: var(--profile-confirm-gap);
 }
 
 .confirmRow {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--profile-confirm-gap);
 }
 
 .confirmText {
@@ -58,22 +62,23 @@
 
 .confirmActions {
   display: flex;
-  gap: 0.75rem;
+  gap: var(--profile-actions-gap);
 }
 
 .deleteBtn,
 .deleteConfirmBtn,
 .cancelBtn {
   cursor: pointer;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-sm, 0.25rem);
+  font-size: var(--profile-btn-font-size);
+  padding: var(--profile-btn-padding);
+  border-radius: var(--profile-btn-radius);
   border: none;
 }
 
 .deleteBtn,
 .deleteConfirmBtn {
-  background-color: var(--color-error, red);
-  color: white;
+  background-color: var(--profile-btn-danger-bg);
+  color: var(--profile-btn-danger-color);
 }
 
 .cancelBtn {

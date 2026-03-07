@@ -1,34 +1,36 @@
+@import './tokens.css';
+
 .container {
-  min-height: 30rem;
+  min-height: var(--upload-form-min-height);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--upload-form-gap);
 }
 
 .uploading {
   text-align: center;
-  padding-block: 2rem;
+  padding-block: var(--upload-form-uploading-padding);
 }
 
 .error {
-  color: var(--color-error, red);
+  color: var(--upload-form-error-color);
 }
 
 .meta {
   display: flex;
   justify-content: space-between;
-  font-size: 0.875rem;
+  font-size: var(--upload-form-meta-font-size);
 }
 
 .filename {
-  font-weight: 500;
+  font-weight: var(--upload-form-filename-weight);
 }
 
 .size {
-  color: var(--color-text-secondary, #666);
+  color: var(--upload-form-size-color);
 }
 
 .actions {
   display: flex;
-  gap: 0.75rem;
+  gap: var(--upload-form-actions-gap);
 }
