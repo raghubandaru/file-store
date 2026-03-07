@@ -1,0 +1,29 @@
+{
+  "name": "@file-store/service-files",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node --env-file=../../.env.local -r ts-node/register src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.997.0",
+    "@aws-sdk/s3-request-presigner": "^3.997.0",
+    "@file-store/schemas": "workspace:*",
+    "@file-store/types": "workspace:*",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongoose": "^9.2.2",
+    "uuid": "^13.0.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22",
+    "@types/uuid": "^10.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  }
+}
