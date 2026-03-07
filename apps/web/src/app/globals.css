@@ -61,3 +61,7 @@ p {
   background-color: var(--color-brand);
   color: var(--text-on-brand);
 }
+
+.inlineBlock {
+  display: inline-block;
+}
