@@ -8,7 +8,7 @@ declare global {
 
 if (!global._mongoosePromise) {
   global._mongoosePromise = mongoose.connect(DB_FILES, {
-    dbName: "playbook_files",
+    dbName: "filestore_files",
   });
 }
 

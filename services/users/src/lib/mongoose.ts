@@ -7,7 +7,7 @@ declare global {
 }
 
 if (!global._mongoosePromise) {
-  global._mongoosePromise = mongoose.connect(DB_USERS, { dbName: "playbook_users" });
+  global._mongoosePromise = mongoose.connect(DB_USERS, { dbName: "filestore_users" });
 }
 
 export default global._mongoosePromise!;
