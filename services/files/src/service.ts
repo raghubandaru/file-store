@@ -32,7 +32,7 @@ export async function getFiles(userId: string) {
 
 export async function getUploadUrl(userId: string, filename: string, contentType: string) {
   const key = `${userId}/${uuid()}-${filename}`;
-  const uploadUrl = await getSignedUrl(
+  const rawUrl = await getSignedUrl(
     s3,
     new PutObjectCommand({
       Bucket: process.env.AWS_S3_BUCKET,
@@ -41,8 +41,16 @@ export async function getUploadUrl(userId: string, filename: string, contentType
     }),
     { expiresIn: 60 }
   );
+  const uploadUrl = stripChecksumParams(rawUrl);
   const fileUrl = `https://${process.env.AWS_S3_BUCKET}.s3.${process.env.AWS_REGION}.amazonaws.com/${key}`;
   return { uploadUrl, fileUrl, key };
+}
+
+function stripChecksumParams(url: string): string {
+  const u = new URL(url);
+  u.searchParams.delete("x-amz-checksum-crc32");
+  u.searchParams.delete("x-amz-sdk-checksum-algorithm");
+  return u.toString();
 }
 
 export async function deleteFile(userId: string, fileId: string) {
