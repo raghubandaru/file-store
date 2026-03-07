@@ -1,10 +1,9 @@
-import { Button } from "@file-store/design-system";
+import { redirect } from "next/navigation";
+import { getSessionUserId } from "@/services/auth/server";
 
-export default function Home() {
-  return (
-    <div>
-      <h1>This is design system Button component</h1>
-      <Button>Click here</Button>
-    </div>
-  );
+export default async function Home() {
+  const userId = await getSessionUserId();
+
+  if (userId) redirect("/user/profile");
+  else redirect("/auth/login");
 }

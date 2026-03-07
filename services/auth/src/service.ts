@@ -40,7 +40,6 @@ export async function refreshSession(oldRefreshToken: string) {
 
   const userId = session.userId.toString();
 
-  // Token rotation — invalidate old, issue new
   await sessionRepo.deleteSession(oldRefreshToken);
 
   const newRefreshToken = generateRefreshToken();

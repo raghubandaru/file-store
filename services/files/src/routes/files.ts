@@ -4,7 +4,6 @@ import { getFiles, saveFile, deleteFile, deleteUserFiles } from "../service";
 
 export const filesRouter = Router();
 
-// GET /api/files?userId=... → FileItem[]
 filesRouter.get("/", async (req: Request, res: Response) => {
   const userId = req.query.userId as string;
   if (!userId) return res.status(400).json({ error: "userId required" });
@@ -24,7 +23,6 @@ filesRouter.get("/", async (req: Request, res: Response) => {
   }
 });
 
-// POST /api/files → FileItem
 filesRouter.post("/", async (req: Request, res: Response) => {
   const { userId, ...data } = req.body as {
     userId: string;
@@ -51,8 +49,6 @@ filesRouter.post("/", async (req: Request, res: Response) => {
   }
 });
 
-// DELETE /api/files/user — batch delete all files for a user
-// Registered BEFORE /:fileId to avoid Express capturing "user" as a param
 filesRouter.delete("/user", async (req: Request, res: Response) => {
   const { userId } = req.body as { userId: string };
   if (!userId) return res.status(400).json({ error: "userId required" });
@@ -64,7 +60,6 @@ filesRouter.delete("/user", async (req: Request, res: Response) => {
   }
 });
 
-// DELETE /api/files/:fileId
 filesRouter.delete("/:fileId", async (req: Request, res: Response) => {
   const { userId } = req.body as { userId: string };
   if (!userId) return res.status(400).json({ error: "userId required" });

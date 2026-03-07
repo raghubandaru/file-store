@@ -1,0 +1,38 @@
+import AuthForm from "@/features/components/AuthForm/AuthForm";
+import { signupAction } from "@/actions/auth";
+import Link from "next/link";
+import { Button } from "@file-store/design-system";
+
+export default function Signup() {
+  return (
+    <AuthForm
+      title="Create your account"
+      submitLabel="Create account"
+      action={signupAction}
+      schemaKey="signup"
+      fields={[
+        {
+          name: "name",
+          label: "Name",
+        },
+        {
+          name: "email",
+          label: "Email",
+          type: "email",
+        },
+        {
+          name: "password",
+          label: "Password",
+          type: "password",
+        },
+      ]}
+      footer={
+        <nav aria-label="Account navigation">
+          <Button as={Link} href="/auth/login">
+            Already Registered? Login here
+          </Button>
+        </nav>
+      }
+    />
+  );
+}

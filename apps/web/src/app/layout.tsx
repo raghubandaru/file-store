@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button, Main, Navbar } from "@file-store/design-system";
+import { getSessionUserId } from "@/services/auth/server";
+import LogoutButton from "@/features/components/LogoutButton/LogoutButton";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -8,11 +10,13 @@ export const metadata: Metadata = {
   description: "Ability to upload and store files",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const userId = await getSessionUserId();
+
   return (
     <html lang="en">
       <body>
@@ -24,18 +28,29 @@ export default function RootLayout({
             EA
           </Button>
           <div>
-            <Button as={Link} href="/login">
-              Login
-            </Button>
-            <Button as={Link} href="/register">
-              Register
-            </Button>
-            <Button as={Link} href="/upload">
-              Upload
-            </Button>
-            <Button as={Link} href="/files">
-              Files
-            </Button>
+            {userId ? (
+              <>
+                <Button as={Link} href="/file/upload">
+                  Upload
+                </Button>
+                <Button as={Link} href="/file/list">
+                  Files
+                </Button>
+                <Button as={Link} href="/user/profile">
+                  Profile
+                </Button>
+                <LogoutButton />
+              </>
+            ) : (
+              <>
+                <Button as={Link} href="/auth/signup">
+                  Sign up
+                </Button>
+                <Button as={Link} href="/auth/login">
+                  Login
+                </Button>
+              </>
+            )}
           </div>
         </Navbar>
         <Main title="EA File Store" subtitle="Ability to upload and store files">

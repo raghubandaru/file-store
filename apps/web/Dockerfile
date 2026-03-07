@@ -10,6 +10,8 @@ RUN corepack enable
 COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
 COPY apps/web/package.json ./apps/web/
 COPY packages/design-system/package.json ./packages/design-system/
+COPY packages/schemas ./packages/schemas
+COPY packages/types ./packages/types
 
 RUN pnpm install --filter web... --frozen-lockfile
 
@@ -30,6 +32,7 @@ ENV NODE_ENV=production
 # Standalone output mirrors the full monorepo directory structure
 COPY --from=builder /repo/apps/web/.next/standalone ./
 COPY --from=builder /repo/apps/web/.next/static ./apps/web/.next/static
+COPY --from=builder /repo/apps/web/public ./apps/web/public
 
 EXPOSE 3000
 CMD ["node", "apps/web/server.js"]

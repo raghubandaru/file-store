@@ -1,14 +1,8 @@
 import { Router, Request, Response } from "express";
-import {
-  createUser,
-  getUserById,
-  deleteUser,
-  verifyCredentials,
-} from "../service";
+import { createUser, getUserById, deleteUser, verifyCredentials } from "../service";
 
 export const usersRouter = Router();
 
-// POST /api/users/verify — must be registered before /:userId to avoid param capture
 usersRouter.post("/verify", async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body as { email: string; password: string };
@@ -19,7 +13,6 @@ usersRouter.post("/verify", async (req: Request, res: Response) => {
   }
 });
 
-// POST /api/users
 usersRouter.post("/", async (req: Request, res: Response) => {
   try {
     const { name, email, password } = req.body as {
@@ -36,7 +29,6 @@ usersRouter.post("/", async (req: Request, res: Response) => {
   }
 });
 
-// GET /api/users/:userId
 usersRouter.get("/:userId", async (req: Request, res: Response) => {
   try {
     const user = await getUserById(req.params.userId as string);
@@ -46,7 +38,6 @@ usersRouter.get("/:userId", async (req: Request, res: Response) => {
   }
 });
 
-// DELETE /api/users/:userId
 usersRouter.delete("/:userId", async (req: Request, res: Response) => {
   try {
     await deleteUser(req.params.userId as string);

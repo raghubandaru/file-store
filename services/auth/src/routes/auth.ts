@@ -4,7 +4,6 @@ import { findSession } from "../repository";
 
 export const authRouter = Router();
 
-// POST /api/login
 authRouter.post("/login", async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body as { email: string; password: string };
@@ -15,7 +14,6 @@ authRouter.post("/login", async (req: Request, res: Response) => {
   }
 });
 
-// POST /api/signup
 authRouter.post("/signup", async (req: Request, res: Response) => {
   try {
     const { name, email, password } = req.body as {
@@ -32,14 +30,12 @@ authRouter.post("/signup", async (req: Request, res: Response) => {
   }
 });
 
-// POST /api/logout
 authRouter.post("/logout", async (req: Request, res: Response) => {
   const { refreshToken } = req.body as { refreshToken?: string };
   if (refreshToken) await logout(refreshToken);
   res.json({ success: true });
 });
 
-// POST /api/refresh
 authRouter.post("/refresh", async (req: Request, res: Response) => {
   try {
     const { refreshToken } = req.body as { refreshToken: string };
@@ -51,8 +47,6 @@ authRouter.post("/refresh", async (req: Request, res: Response) => {
   }
 });
 
-// GET /api/session — Authorization: Bearer <refreshToken>
-// Used by the BFF to resolve a refresh token to a userId for SSR.
 authRouter.get("/session", async (req: Request, res: Response) => {
   const token = req.headers.authorization?.split(" ")[1];
   if (!token) return res.status(401).json({ error: "Unauthorized" });

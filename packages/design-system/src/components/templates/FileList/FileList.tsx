@@ -17,8 +17,7 @@ type FileListProps = {
   onDelete?: (id: string) => Promise<void>;
 };
 
-export function FileList({ files: initialFiles, onDelete }: FileListProps) {
-  const [files, setFiles] = useState(initialFiles);
+export function FileList({ files, onDelete }: FileListProps) {
   const [selected, setSelected] = useState<FileItem | null>(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -50,7 +49,6 @@ export function FileList({ files: initialFiles, onDelete }: FileListProps) {
 
     try {
       await onDelete?.(selected.id);
-      setFiles((prev) => prev.filter((f) => f.id !== selected.id));
       setIsDeleting(false);
       closeModal();
     } catch {

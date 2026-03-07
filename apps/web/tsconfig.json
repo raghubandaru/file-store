@@ -20,7 +20,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@file-store/schemas": ["../../packages/schemas"],
+      "@file-store/schemas/*": ["../../packages/schemas/*"],
+      "@file-store/types": ["../../packages/types"]
     }
   },
   "include": [

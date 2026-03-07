@@ -1,0 +1,17 @@
+.title {
+  margin-block-end: 1.5rem;
+}
+
+.formError {
+  color: var(--color-error, red);
+  margin-block-end: 1rem;
+}
+
+.fieldError {
+  color: var(--color-error, red);
+  margin: 0;
+}
+
+.footer {
+  margin-block-start: 1rem;
+}

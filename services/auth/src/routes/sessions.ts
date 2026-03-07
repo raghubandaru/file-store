@@ -3,7 +3,6 @@ import { deleteSessionsByUserId } from "../repository";
 
 export const sessionsRouter = Router();
 
-// DELETE /api/sessions/:userId
 sessionsRouter.delete("/:userId", async (req: Request, res: Response) => {
   try {
     await deleteSessionsByUserId(req.params.userId as string);
