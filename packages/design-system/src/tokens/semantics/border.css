@@ -1,0 +1,4 @@
+:root {
+  --border-default: var(--slate-300);
+  --border-interactive: var(--color-brand);
+}

@@ -1,0 +1,12 @@
+.uploadContainer {
+  min-height: 30rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+}

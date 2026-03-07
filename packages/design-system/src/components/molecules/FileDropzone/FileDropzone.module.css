@@ -1,0 +1,36 @@
+.dropzone {
+  flex-grow: 1;
+  border: 2px dashed var(--dropzone-border);
+  background: var(--dropzone-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--space-2);
+  cursor: pointer;
+}
+
+.dropzone[data-drag-over='true'] {
+  border-color: var(--dropzone-border-active);
+  background: var(--dropzone-bg-active);
+}
+
+.hiddenInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.dropzone:focus-within {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+.preview {
+  max-height: var(--dropzone-min-height);
+}

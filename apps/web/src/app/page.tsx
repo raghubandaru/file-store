@@ -1,4 +1,4 @@
-import { Button } from '@file-store/design-system';
+import { Button } from "@file-store/design-system";
 
 export default function Home() {
   return (

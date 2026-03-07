@@ -1,0 +1,5 @@
+:root {
+  --surface-primary: var(--slate-50);
+  --surface-secondary: var(--slate-100);
+  --surface-hover: var(--slate-200);
+}

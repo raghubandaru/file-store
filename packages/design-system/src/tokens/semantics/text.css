@@ -1,0 +1,5 @@
+:root {
+  --text-primary: var(--navy-900);
+  --text-label: var(--navy-800);
+  --text-on-brand: var(--slate-50);
+}

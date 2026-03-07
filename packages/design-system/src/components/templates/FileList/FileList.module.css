@@ -1,0 +1,267 @@
+/* ── List ─────────────────────────────────────────── */
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.item {
+  /* bare wrapper — all visual styling on .card */
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-1) var(--space-2);
+  background: var(--surface-primary);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  transition: background 0.12s;
+}
+
+.card:hover {
+  background: var(--surface-hover);
+}
+
+.card:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+.thumbnail {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+  background: var(--surface-secondary);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.filename {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileDetails {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: var(--font-size-sm);
+  color: var(--text-label);
+}
+
+.separator {
+  color: var(--border-default);
+}
+
+.empty {
+  text-align: center;
+  padding: var(--space-4) 0;
+  color: var(--text-label);
+  font-size: var(--font-size-base);
+}
+
+/* ── Dialog ───────────────────────────────────────── */
+
+.dialog {
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  width: min(90vw, 480px);
+  max-height: 90dvh;
+  overflow: hidden;
+  background: var(--surface-primary);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--space-1);
+  right: var(--space-1);
+  width: 3.2rem;
+  height: 3.2rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transition: background 0.12s;
+}
+
+.closeButton:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.closeButton:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.imageWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-secondary);
+  min-height: 200px;
+  max-height: 400px;
+  overflow: hidden;
+}
+
+.dialogImage {
+  max-height: 400px;
+}
+
+/* ── Dialog footer ────────────────────────────────── */
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+  border-top: 1px solid var(--border-default);
+}
+
+.dialogTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+  word-break: break-all;
+}
+
+.detail {
+  font-size: var(--font-size-sm);
+  color: var(--text-label);
+  margin: 0;
+}
+
+/* ── Delete ───────────────────────────────────────── */
+
+.deleteBtn {
+  align-self: flex-start;
+  margin-top: var(--space-1);
+  padding: 0.6rem var(--space-2);
+  font-size: var(--font-size-sm);
+  font: inherit;
+  color: var(--color-danger);
+  background: transparent;
+  border: 1px solid var(--color-danger);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.deleteBtn:hover {
+  background: rgba(185, 28, 28, 0.06);
+}
+
+.deleteBtn:focus-visible {
+  outline: 3px solid var(--color-danger);
+  outline-offset: 2px;
+}
+
+.deleteConfirm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+}
+
+.deletePrompt {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.deleteActions {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.deleteConfirmBtn {
+  padding: 0.6rem var(--space-2);
+  font-size: var(--font-size-sm);
+  font: inherit;
+  background: var(--color-danger);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.12s;
+}
+
+.deleteConfirmBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.deleteConfirmBtn:focus-visible {
+  outline: 3px solid var(--color-danger);
+  outline-offset: 2px;
+}
+
+.deleteCancelBtn {
+  padding: 0.6rem var(--space-2);
+  font-size: var(--font-size-sm);
+  font: inherit;
+  background: transparent;
+  color: var(--text-label);
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.deleteCancelBtn:hover {
+  background: var(--surface-hover);
+}
+
+.deleteCancelBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.deleteCancelBtn:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+.deleteError {
+  font-size: var(--font-size-sm);
+  color: var(--color-danger);
+  margin: 0;
+}

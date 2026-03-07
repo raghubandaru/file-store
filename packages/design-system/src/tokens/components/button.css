@@ -1,0 +1,13 @@
+:root {
+  --button-color: var(--color-brand);
+  --button-font-size: var(--font-size-base);
+  --button-padding: var(--space-1);
+--button-brand-font-size: var(--font-size-xl);
+  --button-brand-font-weight: var(--font-weight-semibold);
+
+  --button-primary-bg: var(--interactive-primary);
+  --button-primary-color: var(--text-on-brand);
+  --button-primary-font-weight: var(--font-weight-semibold);
+
+  --button-secondary-border: 2px solid var(--color-brand);
+}

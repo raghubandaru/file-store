@@ -1,0 +1,6 @@
+:root {
+  --navbar-height: var(--space-6);
+  --navbar-bg: var(--surface-primary);
+  --navbar-accent-color: var(--color-brand);
+  --navbar-accent-width: 5px;
+}

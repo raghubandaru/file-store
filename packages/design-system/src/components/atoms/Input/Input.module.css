@@ -1,0 +1,14 @@
+.input {
+  padding: var(--input-padding);
+  background: var(--input-bg);
+  color: inherit;
+  font-size: var(--input-font-size);
+  font-family: inherit;
+  border: none;
+  line-height: inherit;
+}
+
+.input:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 2px;
+}

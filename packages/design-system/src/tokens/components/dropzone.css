@@ -1,0 +1,7 @@
+:root {
+  --dropzone-border: var(--border-default);
+  --dropzone-bg: var(--surface-secondary);
+  --dropzone-border-active: var(--color-brand);
+  --dropzone-bg-active: var(--surface-hover);
+  --dropzone-min-height: 30rem;
+}

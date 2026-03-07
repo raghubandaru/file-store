@@ -1,0 +1,16 @@
+@import "./primitives/color.css";
+@import "./primitives/spacing.css";
+@import "./primitives/typography.css";
+@import "./primitives/radius.css";
+
+@import "./semantics/color.css";
+@import "./semantics/surface.css";
+@import "./semantics/text.css";
+@import "./semantics/border.css";
+
+@import "./components/button.css";
+@import "./components/input.css";
+@import "./components/label.css";
+@import "./components/navbar.css";
+@import "./components/main.css";
+@import "./components/dropzone.css";

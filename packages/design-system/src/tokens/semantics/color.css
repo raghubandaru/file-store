@@ -1,0 +1,6 @@
+:root {
+  --color-brand: var(--teal-600);
+  --color-danger: var(--red-700);
+
+  --interactive-primary: var(--teal-600);
+}

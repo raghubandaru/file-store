@@ -1,0 +1,20 @@
+.header {
+  height: var(--navbar-height);
+  background: var(--navbar-bg);
+  border-top: var(--navbar-accent-width) solid var(--navbar-accent-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner {
+  composes: flexBetween from "../../../utils.module.css";
+  max-width: var(--layout-max-width);
+  width: 90vw;
+}
+
+@media (max-width: 25em) {
+  .inner {
+    width: 90%;
+  }
+}

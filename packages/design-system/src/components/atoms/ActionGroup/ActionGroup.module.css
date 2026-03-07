@@ -1,0 +1,28 @@
+.actionGroup {
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-inline-size: 0;
+
+  display: flex;
+  gap: var(--space-1);
+  align-items: baseline;
+}
+
+.legend {
+  float: left;
+  padding: 0;
+  margin-bottom: var(--space-1);
+}
+
+.actionGroup::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 25em) {
+  .actionGroup {
+    flex-direction: column;
+  }
+}

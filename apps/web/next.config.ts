@@ -1,8 +1,8 @@
-import type { NextConfig } from 'next';
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ['@file-store/design-system'],
-  output: 'standalone',
+  transpilePackages: ["@file-store/design-system"],
+  output: "standalone",
 };
 
 export default nextConfig;
