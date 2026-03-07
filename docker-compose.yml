@@ -1,9 +1,63 @@
 services:
+  auth:
+    build:
+      context: .
+      dockerfile: services/auth/Dockerfile
+    env_file: .env.production
+    environment:
+      PORT: ${PORT_AUTH}
+      DB_AUTH: ${DB_AUTH}
+      ACCESS_TOKEN_SECRET: ${ACCESS_TOKEN_SECRET}
+      USERS_SERVICE_URL: ${USERS_SERVICE_URL}
+      ALLOWED_ORIGIN: ${ALLOWED_ORIGIN}
+    expose:
+      - "${PORT_AUTH}"
+    restart: unless-stopped
+
+  users:
+    build:
+      context: .
+      dockerfile: services/users/Dockerfile
+    env_file: .env.production
+    environment:
+      PORT: ${PORT_USERS}
+      DB_USERS: ${DB_USERS}
+      ALLOWED_ORIGIN: ${ALLOWED_ORIGIN}
+    expose:
+      - "${PORT_USERS}"
+    restart: unless-stopped
+
+  files:
+    build:
+      context: .
+      dockerfile: services/files/Dockerfile
+    env_file: .env.production
+    environment:
+      PORT: ${PORT_FILES}
+      DB_FILES: ${DB_FILES}
+      AWS_REGION: ${AWS_REGION}
+      AWS_ACCESS_KEY_RES: ${AWS_ACCESS_KEY_RES}
+      AWS_SECRET_KEY_RES: ${AWS_SECRET_KEY_RES}
+      AWS_S3_BUCKET: ${S3_BUCKET}
+      ALLOWED_ORIGIN: ${ALLOWED_ORIGIN}
+    expose:
+      - "${PORT_FILES}"
+    restart: unless-stopped
+
   web:
     build:
       context: .
       dockerfile: apps/web/Dockerfile
     env_file: .env.production
+    environment:
+      AUTH_SERVICE_URL: ${AUTH_SERVICE_URL}
+      USERS_SERVICE_URL: ${USERS_SERVICE_URL}
+      FILES_SERVICE_URL: ${FILES_SERVICE_URL}
+      ACCESS_TOKEN_SECRET: ${ACCESS_TOKEN_SECRET}
     ports:
       - "3000:3000"
+    depends_on:
+      - auth
+      - users
+      - files
     restart: unless-stopped
