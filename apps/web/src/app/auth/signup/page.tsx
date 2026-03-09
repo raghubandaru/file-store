@@ -1,4 +1,7 @@
+import type { Metadata } from "next";
 import AuthForm from "@/features/components/AuthForm/AuthForm";
+
+export const metadata: Metadata = { title: "Sign up" };
 import { signupAction } from "@/actions/auth";
 import Link from "next/link";
 import { Button } from "@file-store/design-system";

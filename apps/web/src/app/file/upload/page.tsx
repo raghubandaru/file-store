@@ -1,3 +1,6 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = { title: "Upload" };
+
 import { redirect } from "next/navigation";
 import { getSessionUserId } from "@/services/auth/server";
 import { UploadForm } from "./upload-form";

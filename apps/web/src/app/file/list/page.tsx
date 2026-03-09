@@ -1,3 +1,6 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = { title: "Files" };
+
 import { redirect } from "next/navigation";
 import { getSessionUserId } from "@/services/auth/server";
 import { getFiles } from "@/lib/files-client";
