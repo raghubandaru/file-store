@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Button, Main, Navbar } from "@file-store/design-system";
 import { getSessionUserId } from "@/services/auth/server";
-import LogoutButton from "@/features/components/LogoutButton/LogoutButton";
+import { NavLinks } from "@/features/components/NavLinks/NavLinks";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -27,31 +27,7 @@ export default async function RootLayout({
           <Button as={Link} href="/" variant="brand">
             EA
           </Button>
-          <div>
-            {userId ? (
-              <>
-                <Button as={Link} href="/file/upload">
-                  Upload
-                </Button>
-                <Button as={Link} href="/file/list">
-                  Files
-                </Button>
-                <Button as={Link} href="/user/profile">
-                  Profile
-                </Button>
-                <LogoutButton />
-              </>
-            ) : (
-              <>
-                <Button as={Link} href="/auth/signup">
-                  Sign up
-                </Button>
-                <Button as={Link} href="/auth/login">
-                  Login
-                </Button>
-              </>
-            )}
-          </div>
+          <NavLinks userId={userId} />
         </Navbar>
         <Main title="EA File Store" subtitle="Ability to upload and store files">
           {children}
