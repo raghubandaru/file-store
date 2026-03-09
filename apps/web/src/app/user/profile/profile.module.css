@@ -46,7 +46,6 @@
 }
 
 .error {
-  color: var(--profile-error-color);
   margin-block-end: var(--profile-confirm-gap);
 }
 

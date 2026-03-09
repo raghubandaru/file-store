@@ -5,12 +5,10 @@
 }
 
 .formError {
-  color: var(--auth-form-error-color);
   margin-block-end: var(--auth-form-field-spacing);
 }
 
 .fieldError {
-  color: var(--auth-form-error-color);
   margin: 0;
 }
 

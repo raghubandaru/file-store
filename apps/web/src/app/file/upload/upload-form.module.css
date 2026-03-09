@@ -12,9 +12,6 @@
   padding-block: var(--upload-form-uploading-padding);
 }
 
-.error {
-  color: var(--upload-form-error-color);
-}
 
 .meta {
   display: flex;

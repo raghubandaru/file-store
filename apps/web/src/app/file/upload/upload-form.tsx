@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Button, FileDropzone } from "@file-store/design-system";
+import { Button, ErrorMessage, FileDropzone } from "@file-store/design-system";
 import { MAX_FILE_SIZE, ALLOWED_CONTENT_TYPES } from "@file-store/schemas/upload";
 import styles from "./upload-form.module.css";
 
@@ -102,11 +102,7 @@ export function UploadForm() {
 
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
-      {error && (
-        <p role="alert" className={styles.error}>
-          {error}
-        </p>
-      )}
+      {error && <ErrorMessage className={styles.error}>{error}</ErrorMessage>}
 
       <FileDropzone
         preview={preview}

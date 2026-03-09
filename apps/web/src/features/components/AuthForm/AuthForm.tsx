@@ -2,7 +2,7 @@
 
 import { useActionState, useState } from "react";
 import styles from "./AuthForm.module.css";
-import { Button, Field, Form, Input, Label } from "@file-store/design-system";
+import { Button, ErrorMessage, Field, Form, Input, Label } from "@file-store/design-system";
 import type { ActionState } from "@file-store/types";
 import { z } from "zod";
 import { loginSchema, signupSchema } from "@file-store/schemas/auth";
@@ -73,9 +73,7 @@ export default function AuthForm({ title, fields, submitLabel, action, schemaKey
       <h2 className={styles.title}>{title}</h2>
 
       {state.errors?.general && (
-        <p role="alert" className={styles.formError}>
-          {state.errors.general}
-        </p>
+        <ErrorMessage className={styles.formError}>{state.errors.general}</ErrorMessage>
       )}
 
       {fields.map((field) => {
@@ -96,9 +94,9 @@ export default function AuthForm({ title, fields, submitLabel, action, schemaKey
               onChange={(e) => handleChange(field.name, e.target.value)}
             />
             {fieldError && (
-              <p id={errorId} role="alert" className={styles.fieldError}>
+              <ErrorMessage id={errorId} className={styles.fieldError}>
                 {fieldError}
-              </p>
+              </ErrorMessage>
             )}
           </Field>
         );

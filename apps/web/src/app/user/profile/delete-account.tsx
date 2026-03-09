@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { ErrorMessage } from "@file-store/design-system";
 import styles from "./profile.module.css";
 
 export function DeleteAccount() {
@@ -30,11 +31,7 @@ export function DeleteAccount() {
     <section className={styles.dangerZone}>
       <h3 className={styles.dangerTitle}>Danger zone</h3>
 
-      {error && (
-        <p role="alert" className={styles.error}>
-          {error}
-        </p>
-      )}
+      {error && <ErrorMessage className={styles.error}>{error}</ErrorMessage>}
 
       {confirm ? (
         <div className={styles.confirmRow}>
