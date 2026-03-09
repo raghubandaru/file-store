@@ -102,11 +102,13 @@ export default function AuthForm({ title, fields, submitLabel, action, schemaKey
         );
       })}
 
-      <Button type="submit" variant="primary" disabled={isPending || hasErrors}>
-        {isPending ? "Loading…" : submitLabel}
-      </Button>
+      <div className={styles.actionsRow}>
+        <Button type="submit" variant="primary" disabled={isPending || hasErrors}>
+          {isPending ? "Loading…" : submitLabel}
+        </Button>
 
-      {footer && <div className={styles.footer}>{footer}</div>}
+        {footer && <div className={styles.footer}>{footer}</div>}
+      </div>
     </Form>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ErrorMessage } from "@file-store/design-system";
+import { Button, ErrorMessage } from "@file-store/design-system";
 import styles from "./profile.module.css";
 
 export function DeleteAccount() {
@@ -39,26 +39,18 @@ export function DeleteAccount() {
             This will permanently delete your account and all uploaded files. Are you sure?
           </p>
           <div className={styles.confirmActions}>
-            <button
-              className={styles.deleteConfirmBtn}
-              onClick={handleDelete}
-              disabled={isDeleting}
-            >
+            <Button variant="destructive" onClick={handleDelete} disabled={isDeleting}>
               {isDeleting ? "Deleting…" : "Yes, delete my account"}
-            </button>
-            <button
-              className={styles.cancelBtn}
-              onClick={() => setConfirm(false)}
-              disabled={isDeleting}
-            >
+            </Button>
+            <Button variant="neutral" onClick={() => setConfirm(false)} disabled={isDeleting}>
               Cancel
-            </button>
+            </Button>
           </div>
         </div>
       ) : (
-        <button className={styles.deleteBtn} onClick={() => setConfirm(true)}>
+        <Button variant="destructive-outline" onClick={() => setConfirm(true)}>
           Delete account
-        </button>
+        </Button>
       )}
     </section>
   );

@@ -4,7 +4,7 @@ import styles from "./Button.module.css";
 
 type ButtonProps<T extends ElementType = "button"> = {
   as?: T;
-  variant?: "brand" | "primary" | "secondary";
+  variant?: "brand" | "primary" | "secondary" | "neutral" | "destructive" | "destructive-outline";
   className?: string;
 } & ComponentPropsWithoutRef<T>;
 

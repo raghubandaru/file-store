@@ -4,10 +4,6 @@
   width: 100%;
 }
 
-.heading {
-  margin-block-end: var(--profile-heading-spacing);
-}
-
 .section {
   margin-block-end: var(--profile-section-spacing);
 }
@@ -64,34 +60,3 @@
   gap: var(--profile-actions-gap);
 }
 
-.deleteBtn,
-.deleteConfirmBtn,
-.cancelBtn {
-  cursor: pointer;
-  font-size: var(--profile-btn-font-size);
-  padding: var(--profile-btn-padding);
-  border-radius: var(--profile-btn-radius);
-  border: none;
-}
-
-.deleteBtn,
-.deleteConfirmBtn {
-  background-color: var(--profile-btn-danger-bg);
-  color: var(--profile-btn-danger-color);
-}
-
-.deleteBtn:focus-visible,
-.deleteConfirmBtn:focus-visible {
-  outline: var(--profile-btn-danger-focus-outline);
-  outline-offset: 2px;
-}
-
-.cancelBtn {
-  background-color: transparent;
-  border: 1px solid currentColor;
-}
-
-.cancelBtn:focus-visible {
-  outline: var(--profile-btn-focus-outline);
-  outline-offset: 2px;
-}

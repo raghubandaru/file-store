@@ -165,24 +165,6 @@
 .deleteBtn {
   align-self: flex-start;
   margin-top: var(--space-1);
-  padding: 0.6rem var(--space-2);
-  font-size: var(--font-size-sm);
-  font: inherit;
-  color: var(--color-danger);
-  background: transparent;
-  border: 1px solid var(--color-danger);
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.12s;
-}
-
-.deleteBtn:hover {
-  background: rgba(185, 28, 28, 0.06);
-}
-
-.deleteBtn:focus-visible {
-  outline: 3px solid var(--color-danger);
-  outline-offset: 2px;
 }
 
 .deleteConfirm {
@@ -204,56 +186,7 @@
   gap: var(--space-1);
 }
 
-.deleteConfirmBtn {
-  padding: 0.6rem var(--space-2);
-  font-size: var(--font-size-sm);
-  font: inherit;
-  background: var(--color-danger);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: opacity 0.12s;
-}
-
-.deleteConfirmBtn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.deleteConfirmBtn:focus-visible {
-  outline: 3px solid var(--color-danger);
-  outline-offset: 2px;
-}
-
-.deleteCancelBtn {
-  padding: 0.6rem var(--space-2);
-  font-size: var(--font-size-sm);
-  font: inherit;
-  background: transparent;
-  color: var(--text-label);
-  border: 1px solid var(--border-default);
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.12s;
-}
-
-.deleteCancelBtn:hover {
-  background: var(--surface-hover);
-}
-
-.deleteCancelBtn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.deleteCancelBtn:focus-visible {
-  outline: 3px solid var(--color-brand);
-  outline-offset: 2px;
-}
-
 .deleteError {
-  font-size: var(--font-size-sm);
-  color: var(--color-danger);
   margin: 0;
+  font-size: var(--font-size-sm);
 }

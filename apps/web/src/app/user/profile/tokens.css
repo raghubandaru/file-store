@@ -1,12 +1,10 @@
 :root {
-  --profile-heading-spacing: 1.5rem;
   --profile-section-spacing: var(--space-2);
   --profile-fields-gap: 0.75rem;
   --profile-field-row-gap: var(--space-1);
   --profile-field-font-size: var(--font-size-lg);
   --profile-field-label-weight: var(--font-weight-semibold);
   --profile-field-label-width: 5rem;
-  --profile-btn-font-size: var(--font-size-base);
   --profile-danger-border-color: var(--color-error);
   --profile-danger-radius: var(--radius-md);
   --profile-danger-padding: 1.5rem;
@@ -14,10 +12,4 @@
   --profile-error-color: var(--color-error);
   --profile-confirm-gap: var(--space-1);
   --profile-actions-gap: 0.75rem;
-  --profile-btn-padding: 0.5rem 1rem;
-  --profile-btn-radius: var(--radius-sm);
-  --profile-btn-danger-bg: var(--color-error);
-  --profile-btn-danger-color: var(--white);
-  --profile-btn-focus-outline: 3px solid var(--color-brand);
-  --profile-btn-danger-focus-outline: 3px solid var(--color-error);
 }

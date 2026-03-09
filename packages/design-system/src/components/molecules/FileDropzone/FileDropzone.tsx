@@ -8,9 +8,15 @@ type FileDropzoneProps = {
   preview: string | null;
   onFileSelect: (file: File) => void;
   accept?: string;
+  hint?: string[];
 };
 
-export function FileDropzone({ preview, onFileSelect, accept = "image/*" }: FileDropzoneProps) {
+export function FileDropzone({
+  preview,
+  onFileSelect,
+  accept = "image/*",
+  hint,
+}: FileDropzoneProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isDragOver, setIsDragOver] = useState(false);
 
@@ -60,7 +66,18 @@ export function FileDropzone({ preview, onFileSelect, accept = "image/*" }: File
       {preview ? (
         <ImagePreview src={preview} alt="Upload preview" className={styles.preview} />
       ) : (
-        <p aria-live="polite">{isDragOver ? "Drop the image here" : "Upload Image"}</p>
+        <div className={styles.placeholder}>
+          <p aria-live="polite">
+            {isDragOver ? "Drop the image here" : "Drag and drop or Click here"}
+          </p>
+          {hint && hint.length > 0 && (
+            <ul className={styles.hint}>
+              {hint.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          )}
+        </div>
       )}
     </label>
   );

@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import type { FileItem as TypesFileItem } from "@file-store/types";
-import { FileList } from "@file-store/design-system";
+import { FileList, PageHeading } from "@file-store/design-system";
 
 // Map @file-store/types FileItem (createdAt) to design-system FileItem (uploadedAt)
 function toDisplayItem(file: TypesFileItem) {
@@ -29,7 +29,7 @@ export function FilesList({ files }: { files: TypesFileItem[] }) {
 
   return (
     <>
-      <h2>Your files</h2>
+      <PageHeading>Files</PageHeading>
       <FileList files={files.map(toDisplayItem)} onDelete={handleDelete} />
     </>
   );

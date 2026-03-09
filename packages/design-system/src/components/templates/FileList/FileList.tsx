@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { Button } from "../../atoms/Button";
+import { ErrorMessage } from "../../atoms/ErrorMessage";
 import { ImagePreview } from "../../molecules/ImagePreview";
 import styles from "./FileList.module.css";
 
@@ -151,42 +153,34 @@ export function FileList({ files, onDelete }: FileListProps) {
             </p>
 
             {deleteError && (
-              <p role="alert" className={styles.deleteError}>
-                {deleteError}
-              </p>
+              <ErrorMessage className={styles.deleteError}>{deleteError}</ErrorMessage>
             )}
 
             {confirmDelete ? (
               <div className={styles.deleteConfirm}>
                 <p className={styles.deletePrompt}>Delete this file?</p>
                 <div className={styles.deleteActions}>
-                  <button
-                    type="button"
-                    className={styles.deleteConfirmBtn}
-                    onClick={handleDelete}
-                    disabled={isDeleting}
-                  >
+                  <Button variant="destructive" onClick={handleDelete} disabled={isDeleting}>
                     {isDeleting ? "Deleting…" : "Yes, delete"}
-                  </button>
-                  <button
-                    type="button"
-                    className={styles.deleteCancelBtn}
+                  </Button>
+                  <Button
+                    variant="neutral"
                     onClick={() => setConfirmDelete(false)}
                     aria-label="Cancel delete"
                     disabled={isDeleting}
                   >
                     Cancel
-                  </button>
+                  </Button>
                 </div>
               </div>
             ) : (
-              <button
-                type="button"
+              <Button
+                variant="destructive-outline"
                 className={styles.deleteBtn}
                 onClick={() => setConfirmDelete(true)}
               >
                 Delete file
-              </button>
+              </Button>
             )}
           </footer>
         </dialog>

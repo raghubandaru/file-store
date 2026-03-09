@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Button, ErrorMessage, FileDropzone } from "@file-store/design-system";
+import { Button, ErrorMessage, FileDropzone, PageHeading } from "@file-store/design-system";
 import { MAX_FILE_SIZE, ALLOWED_CONTENT_TYPES } from "@file-store/schemas/upload";
 import styles from "./upload-form.module.css";
 
@@ -101,32 +101,39 @@ export function UploadForm() {
   }
 
   return (
-    <form className={styles.container} onSubmit={handleSubmit}>
-      {error && <ErrorMessage className={styles.error}>{error}</ErrorMessage>}
+    <>
+      <PageHeading>Upload</PageHeading>
+      <form className={styles.container} onSubmit={handleSubmit}>
+        <FileDropzone
+          preview={preview}
+          onFileSelect={handleFileSelect}
+          accept={ALLOWED_CONTENT_TYPES.join(",")}
+          hint={[
+            `Accepted formats: ${ALLOWED_CONTENT_TYPES.map((t) => t.split("/")[1].toUpperCase()).join(", ")}`,
+            `Max size: ${MAX_FILE_SIZE / (1024 * 1024)} MB`,
+          ]}
+        />
 
-      <FileDropzone
-        preview={preview}
-        onFileSelect={handleFileSelect}
-        accept={ALLOWED_CONTENT_TYPES.join(",")}
-      />
+        {error && <ErrorMessage className={styles.error}>{error}</ErrorMessage>}
 
-      {file && (
-        <div className={styles.meta}>
-          <span className={styles.filename}>{file.name}</span>
-          <span className={styles.size}>{(file.size / 1024).toFixed(1)} KB</span>
-        </div>
-      )}
+        {file && (
+          <div className={styles.meta}>
+            <span className={styles.filename}>{file.name}</span>
+            <span className={styles.size}>{(file.size / 1024).toFixed(1)} KB</span>
+          </div>
+        )}
 
-      {file && (
-        <div className={styles.actions}>
-          <Button type="submit" variant="primary">
-            Upload
-          </Button>
-          <Button type="button" variant="secondary" onClick={handleClear}>
-            Clear
-          </Button>
-        </div>
-      )}
-    </form>
+        {file && (
+          <div className={styles.actions}>
+            <Button type="submit" variant="primary">
+              Upload
+            </Button>
+            <Button type="button" variant="secondary" onClick={handleClear}>
+              Clear
+            </Button>
+          </div>
+        )}
+      </form>
+    </>
   );
 }

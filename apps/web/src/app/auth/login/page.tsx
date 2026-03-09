@@ -27,7 +27,7 @@ export default function Login() {
       footer={
         <nav aria-label="Account navigation">
           <Button as={Link} href="/auth/signup">
-            Create Account
+            No account? Sign up
           </Button>
         </nav>
       }

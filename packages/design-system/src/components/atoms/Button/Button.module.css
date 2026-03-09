@@ -37,3 +37,39 @@
 .button[data-variant='secondary'] {
   border: var(--button-secondary-border);
 }
+
+.button[data-variant='neutral'] {
+  background: transparent;
+  color: var(--button-neutral-color);
+  border: var(--button-neutral-border);
+}
+
+.button[data-variant='neutral']:hover {
+  background: var(--surface-hover);
+}
+
+.button[data-variant='destructive'] {
+  background: var(--button-destructive-bg);
+  color: var(--button-destructive-color);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.button[data-variant='destructive']:focus-visible {
+  outline: var(--button-destructive-focus-outline);
+}
+
+.button[data-variant='destructive-outline'] {
+  background: transparent;
+  color: var(--button-destructive-outline-color);
+  border: var(--button-destructive-outline-border);
+  border-radius: var(--radius-sm);
+}
+
+.button[data-variant='destructive-outline']:hover {
+  background: rgba(185, 28, 28, 0.06);
+}
+
+.button[data-variant='destructive-outline']:focus-visible {
+  outline: var(--button-destructive-focus-outline);
+}

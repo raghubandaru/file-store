@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { PageHeading } from "@file-store/design-system";
 import { getSessionUserId } from "@/services/auth/server";
 import { getUser } from "@/services/user/service";
 import { DeleteAccount } from "./delete-account";
@@ -15,7 +16,7 @@ export default async function ProfilePage() {
 
   return (
     <div className={styles.page}>
-      <h2 className={styles.heading}>Profile</h2>
+      <PageHeading>Profile</PageHeading>
 
       <section className={styles.section}>
         <dl className={styles.fields}>
