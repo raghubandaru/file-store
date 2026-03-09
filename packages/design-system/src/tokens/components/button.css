@@ -2,7 +2,7 @@
   --button-color: var(--color-brand);
   --button-font-size: var(--font-size-base);
   --button-padding: var(--space-1);
---button-brand-font-size: var(--font-size-xl);
+  --button-brand-font-size: var(--font-size-xl);
   --button-brand-font-weight: var(--font-weight-semibold);
 
   --button-primary-bg: var(--interactive-primary);

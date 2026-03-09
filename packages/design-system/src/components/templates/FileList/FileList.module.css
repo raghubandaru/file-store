@@ -19,7 +19,7 @@
   padding: var(--space-1) var(--space-2);
   background: var(--surface-primary);
   border: 1px solid var(--border-default);
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   cursor: pointer;
   text-align: left;
   font: inherit;
@@ -53,12 +53,10 @@
 }
 
 .filename {
+  composes: truncate from '../../utils.module.css';
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: var(--text-primary);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .fileDetails {
@@ -82,7 +80,7 @@
 
 .dialog {
   border: none;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   padding: 0;
   width: min(90vw, 480px);
   max-height: 90dvh;
@@ -107,7 +105,7 @@
   border: none;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.45);
-  color: #fff;
+  color: var(--white);
   cursor: pointer;
   font-size: var(--font-size-sm);
   display: flex;
@@ -122,7 +120,7 @@
 }
 
 .closeButton:focus-visible {
-  outline: 3px solid #fff;
+  outline: 3px solid var(--white);
   outline-offset: 2px;
 }
 

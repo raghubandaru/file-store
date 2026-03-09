@@ -4,7 +4,7 @@
   --upload-form-uploading-padding: var(--space-2);
   --upload-form-error-color: var(--color-error);
   --upload-form-meta-font-size: var(--font-size-sm);
-  --upload-form-filename-weight: 500;
+  --upload-form-filename-weight: var(--font-weight-medium);
   --upload-form-size-color: var(--text-label);
-  --upload-form-actions-gap: 0.75rem;
+  --upload-form-actions-gap: var(--space-075);
 }

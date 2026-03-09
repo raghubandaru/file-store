@@ -6,5 +6,5 @@
   --color-error-bg: var(--red-100);
   --color-error-text: var(--red-700);
 
---interactive-primary: var(--teal-600);
+  --interactive-primary: var(--teal-600);
 }
