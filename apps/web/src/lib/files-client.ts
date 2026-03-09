@@ -7,7 +7,7 @@
 
 import type { FileItem } from "@file-store/types";
 
-const FILES_URL = process.env.FILES_SERVICE_URL ?? "http://localhost:3003";
+const FILES_URL = process.env.FILES_SERVICE_URL;
 
 async function filesFetch<T>(path: string, init: RequestInit): Promise<T> {
   const res = await fetch(`${FILES_URL}${path}`, {

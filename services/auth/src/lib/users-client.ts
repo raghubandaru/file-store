@@ -3,7 +3,7 @@
  * Called server-side only from the auth service during login and signup.
  */
 
-const USERS_URL = process.env.USERS_SERVICE_URL ?? "http://localhost:3002";
+const USERS_URL = process.env.USERS_SERVICE_URL;
 
 async function usersFetch<T>(path: string, init: RequestInit): Promise<T> {
   const res = await fetch(`${USERS_URL}${path}`, {

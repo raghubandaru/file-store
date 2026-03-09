@@ -5,7 +5,7 @@
 
 import type { UserProfile } from "@file-store/types";
 
-const USERS_URL = process.env.USERS_SERVICE_URL ?? "http://localhost:3002";
+const USERS_URL = process.env.USERS_SERVICE_URL;
 
 async function usersFetch<T>(path: string, init: RequestInit): Promise<T> {
   const res = await fetch(`${USERS_URL}${path}`, {

@@ -5,7 +5,7 @@
  * service only receives/returns plain tokens.
  */
 
-const AUTH_URL = process.env.AUTH_SERVICE_URL ?? "http://localhost:3001";
+const AUTH_URL = process.env.AUTH_SERVICE_URL;
 
 type AuthResponse = {
   accessToken: string;
