@@ -1,0 +1,17 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-css-modules"],
+  "rules": {
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9-]*$",
+    "custom-property-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+    "custom-property-empty-line-before": null,
+    "import-notation": "string",
+    "color-function-notation": "legacy",
+    "color-function-alias-notation": null,
+    "alpha-value-notation": "number",
+    "color-hex-length": "short",
+    "media-feature-range-notation": "prefix",
+    "at-rule-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "value-keyword-case": null
+  }
+}

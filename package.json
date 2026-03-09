@@ -8,13 +8,17 @@
     "build": "turbo run build",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yaml,yml}\"",
     "lint": "turbo run lint",
+    "lint:css": "stylelint \"**/*.css\"",
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
+    "eslint": "^9",
     "prettier": "^3",
+    "stylelint": "^17.4.0",
+    "stylelint-config-css-modules": "^4.6.0",
+    "stylelint-config-standard": "^40.0.0",
     "turbo": "^2.8.13",
-    "typescript": "^5",
-    "eslint": "^9"
+    "typescript": "^5"
   },
   "engines": {
     "node": ">=22.0.0",
