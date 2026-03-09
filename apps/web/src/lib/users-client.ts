@@ -14,7 +14,7 @@ async function usersFetch<T>(path: string, init: RequestInit): Promise<T> {
   });
 
   if (!res.ok) {
-    const body = await res.json().catch(() => ({ error: "Users error" })) as { error?: string };
+    const body = (await res.json().catch(() => ({ error: "Users error" }))) as { error?: string };
     throw new Error(body.error ?? "Users error");
   }
 

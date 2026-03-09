@@ -8,7 +8,7 @@ import type { ActionState } from "@file-store/types";
 
 export async function loginAction(
   _prevState: ActionState,
-  formData: FormData,
+  formData: FormData
 ): Promise<ActionState> {
   const raw = {
     email: formData.get("email") as string,
@@ -19,10 +19,7 @@ export async function loginAction(
   if (!result.success) return { errors: fieldErrors(result.error) };
 
   try {
-    const { refreshToken } = await loginUser(
-      result.data.email,
-      result.data.password,
-    );
+    const { refreshToken } = await loginUser(result.data.email, result.data.password);
 
     (await cookies()).set("refreshToken", refreshToken, {
       httpOnly: true,
@@ -43,7 +40,7 @@ export async function loginAction(
 
 export async function signupAction(
   _prevState: ActionState,
-  formData: FormData,
+  formData: FormData
 ): Promise<ActionState> {
   const raw = {
     name: formData.get("name") as string,
@@ -58,7 +55,7 @@ export async function signupAction(
     const { refreshToken } = await signupUser(
       result.data.name,
       result.data.email,
-      result.data.password,
+      result.data.password
     );
 
     (await cookies()).set("refreshToken", refreshToken, {

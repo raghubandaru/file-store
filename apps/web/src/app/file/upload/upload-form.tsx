@@ -123,8 +123,12 @@ export function UploadForm() {
 
       {file && (
         <div className={styles.actions}>
-          <Button type="submit" variant="primary">Upload</Button>
-          <Button type="button" variant="secondary" onClick={handleClear}>Clear</Button>
+          <Button type="submit" variant="primary">
+            Upload
+          </Button>
+          <Button type="button" variant="secondary" onClick={handleClear}>
+            Clear
+          </Button>
         </div>
       )}
     </form>

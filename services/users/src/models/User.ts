@@ -15,9 +15,8 @@ const UserSchema = new Schema<IUser>(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
   },
-  { timestamps: true },
+  { timestamps: true }
 );
 
 export const User =
-  (mongoose.models.User as mongoose.Model<IUser>) ||
-  mongoose.model<IUser>("User", UserSchema);
+  (mongoose.models.User as mongoose.Model<IUser>) || mongoose.model<IUser>("User", UserSchema);

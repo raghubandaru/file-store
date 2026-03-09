@@ -8,7 +8,9 @@ type NavbarProps = {
 export function Navbar({ children }: NavbarProps) {
   return (
     <header className={styles.header}>
-      <nav aria-label="Main" className={styles.inner}>{children}</nav>
+      <nav aria-label="Main" className={styles.inner}>
+        {children}
+      </nav>
     </header>
   );
 }

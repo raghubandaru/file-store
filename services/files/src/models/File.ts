@@ -20,9 +20,8 @@ const FileSchema = new Schema<IFile>(
     contentType: { type: String, required: true },
     size: { type: Number, required: true },
   },
-  { timestamps: { createdAt: true, updatedAt: false } },
+  { timestamps: { createdAt: true, updatedAt: false } }
 );
 
 export const File =
-  (mongoose.models.File as mongoose.Model<IFile>) ||
-  mongoose.model<IFile>("File", FileSchema);
+  (mongoose.models.File as mongoose.Model<IFile>) || mongoose.model<IFile>("File", FileSchema);

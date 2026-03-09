@@ -16,6 +16,6 @@ export function fieldErrors(error: z.ZodError): Record<string, string> {
     Object.entries(z.flattenError(error).fieldErrors).map(([k, v]) => [
       k,
       (v as string[] | undefined)?.[0] ?? "",
-    ]),
+    ])
   );
 }

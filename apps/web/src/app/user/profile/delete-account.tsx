@@ -39,8 +39,7 @@ export function DeleteAccount() {
       {confirm ? (
         <div className={styles.confirmRow}>
           <p className={styles.confirmText}>
-            This will permanently delete your account and all uploaded files.
-            Are you sure?
+            This will permanently delete your account and all uploaded files. Are you sure?
           </p>
           <div className={styles.confirmActions}>
             <button

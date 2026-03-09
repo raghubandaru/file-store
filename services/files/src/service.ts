@@ -80,12 +80,22 @@ export async function saveFile(
     size: number;
   }
 ) {
-  return insertFile({
-    userId,
-    key: data.key,
-    url: data.fileUrl,
-    filename: data.filename,
-    contentType: data.contentType,
-    size: data.size,
-  });
+  try {
+    return await insertFile({
+      userId,
+      key: data.key,
+      url: data.fileUrl,
+      filename: data.filename,
+      contentType: data.contentType,
+      size: data.size,
+    });
+  } catch (err) {
+    // DB save failed — remove the already-uploaded S3 object to avoid orphaned files
+    try {
+      await s3.send(new DeleteObjectCommand({ Bucket: process.env.AWS_S3_BUCKET, Key: data.key }));
+    } catch (s3Err) {
+      console.error("[files-service] Failed to clean up orphaned S3 object:", data.key, s3Err);
+    }
+    throw err;
+  }
 }

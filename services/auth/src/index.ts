@@ -3,6 +3,14 @@ import cors from "cors";
 import { authRouter } from "./routes/auth";
 import { sessionsRouter } from "./routes/sessions";
 
+const REQUIRED_ENV = ["DB_AUTH", "ACCESS_TOKEN_SECRET", "ALLOWED_ORIGIN"] as const;
+for (const key of REQUIRED_ENV) {
+  if (!process.env[key]) {
+    console.error(`[auth-service] Missing required environment variable: ${key}`);
+    process.exit(1);
+  }
+}
+
 const app = express();
 const PORT = process.env.PORT ?? 3001;
 

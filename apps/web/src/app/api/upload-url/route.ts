@@ -17,6 +17,13 @@ export async function POST(req: NextRequest) {
   }
 
   const { filename, contentType } = result.data;
-  const uploadResult = await getUploadUrl(userId, filename, contentType);
-  return NextResponse.json(uploadResult);
+
+  try {
+    const uploadResult = await getUploadUrl(userId, filename, contentType);
+    return NextResponse.json(uploadResult);
+  } catch (e: unknown) {
+    const message = e instanceof Error ? e.message : "Failed to generate upload URL";
+    console.error("[upload-url] Error:", e);
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
 }

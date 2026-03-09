@@ -14,7 +14,7 @@ const SessionSchema = new Schema<ISession>(
     refreshToken: { type: String, required: true },
     expiresAt: { type: Date, required: true },
   },
-  { timestamps: { createdAt: true, updatedAt: false } },
+  { timestamps: { createdAt: true, updatedAt: false } }
 );
 
 SessionSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });

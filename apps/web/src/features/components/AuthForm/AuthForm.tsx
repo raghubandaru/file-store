@@ -30,14 +30,7 @@ type Props = {
   footer?: React.ReactNode;
 };
 
-export default function AuthForm({
-  title,
-  fields,
-  submitLabel,
-  action,
-  schemaKey,
-  footer,
-}: Props) {
+export default function AuthForm({ title, fields, submitLabel, action, schemaKey, footer }: Props) {
   const [state, formAction, isPending] = useActionState(action, {
     errors: {},
   });

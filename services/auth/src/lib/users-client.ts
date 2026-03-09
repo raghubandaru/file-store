@@ -12,7 +12,7 @@ async function usersFetch<T>(path: string, init: RequestInit): Promise<T> {
   });
 
   if (!res.ok) {
-    const body = await res.json().catch(() => ({ error: "Users error" })) as { error?: string };
+    const body = (await res.json().catch(() => ({ error: "Users error" }))) as { error?: string };
     const { error } = body;
     throw new Error(error ?? "Users error");
   }
@@ -23,7 +23,7 @@ async function usersFetch<T>(path: string, init: RequestInit): Promise<T> {
 export async function createUserAccount(
   name: string,
   email: string,
-  password: string,
+  password: string
 ): Promise<{ id: string; email: string }> {
   return usersFetch<{ id: string; email: string }>("/api/users", {
     method: "POST",
@@ -33,7 +33,7 @@ export async function createUserAccount(
 
 export async function verifyUserCredentials(
   email: string,
-  password: string,
+  password: string
 ): Promise<{ id: string; email: string }> {
   return usersFetch<{ id: string; email: string }>("/api/users/verify", {
     method: "POST",

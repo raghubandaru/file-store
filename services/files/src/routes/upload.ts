@@ -15,7 +15,8 @@ uploadRouter.post("/", async (req: Request, res: Response) => {
   try {
     const data = await getUploadUrl(userId, filename, contentType);
     res.json(data);
-  } catch {
+  } catch (e) {
+    console.error("[files-service] POST /upload-url error:", e);
     res.status(500).json({ error: "Internal error" });
   }
 });

@@ -18,7 +18,8 @@ filesRouter.get("/", async (req: Request, res: Response) => {
       url: f.url,
     }));
     res.json(files);
-  } catch {
+  } catch (e) {
+    console.error("[files-service] GET / error:", e);
     res.status(500).json({ error: "Internal error" });
   }
 });
@@ -44,7 +45,8 @@ filesRouter.post("/", async (req: Request, res: Response) => {
       url: doc.url,
     };
     res.json(file);
-  } catch {
+  } catch (e) {
+    console.error("[files-service] POST / error:", e);
     res.status(500).json({ error: "Internal error" });
   }
 });
@@ -55,7 +57,8 @@ filesRouter.delete("/user", async (req: Request, res: Response) => {
   try {
     await deleteUserFiles(userId);
     res.json({ success: true });
-  } catch {
+  } catch (e) {
+    console.error("[files-service] DELETE /user error:", e);
     res.status(500).json({ error: "Internal error" });
   }
 });
@@ -68,6 +71,7 @@ filesRouter.delete("/:fileId", async (req: Request, res: Response) => {
     res.json({ success: true });
   } catch (e) {
     const message = e instanceof Error ? e.message : "Delete failed";
+    if (message !== "File not found") console.error("[files-service] DELETE /:fileId error:", e);
     res.status(400).json({ error: message });
   }
 });

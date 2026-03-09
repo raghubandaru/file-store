@@ -16,7 +16,7 @@ async function filesFetch<T>(path: string, init: RequestInit): Promise<T> {
   });
 
   if (!res.ok) {
-    const body = await res.json().catch(() => ({ error: "Files error" })) as { error?: string };
+    const body = (await res.json().catch(() => ({ error: "Files error" }))) as { error?: string };
     throw new Error(body.error ?? "Files error");
   }
 
@@ -31,11 +31,18 @@ export async function getFiles(userId: string): Promise<FileItem[]> {
 
 export async function saveFile(
   userId: string,
-  data: { key: string; fileUrl: string; filename: string; contentType: string; size: number },
+  data: { key: string; fileUrl: string; filename: string; contentType: string; size: number }
 ): Promise<FileItem> {
   return filesFetch("/api/files", {
     method: "POST",
-    body: JSON.stringify({ userId, ...data }),
+    body: JSON.stringify({
+      userId,
+      key: data.key,
+      fileUrl: data.fileUrl,
+      filename: data.filename,
+      contentType: data.contentType,
+      size: data.size,
+    }),
   });
 }
 
@@ -56,7 +63,7 @@ export async function deleteUserFiles(userId: string): Promise<void> {
 export async function getUploadUrl(
   userId: string,
   filename: string,
-  contentType: string,
+  contentType: string
 ): Promise<{ uploadUrl: string; fileUrl: string; key: string }> {
   return filesFetch("/api/upload-url", {
     method: "POST",

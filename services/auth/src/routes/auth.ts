@@ -9,7 +9,8 @@ authRouter.post("/login", async (req: Request, res: Response) => {
     const { email, password } = req.body as { email: string; password: string };
     const data = await login(email, password);
     res.json(data);
-  } catch {
+  } catch (e) {
+    console.error("[auth-service] POST /login error:", e);
     res.status(401).json({ error: "Invalid credentials" });
   }
 });
@@ -26,14 +27,20 @@ authRouter.post("/signup", async (req: Request, res: Response) => {
   } catch (e) {
     const message = e instanceof Error ? e.message : "Signup failed";
     const status = message === "User exists" ? 409 : 400;
+    if (status !== 409) console.error("[auth-service] POST /signup error:", e);
     res.status(status).json({ error: message });
   }
 });
 
 authRouter.post("/logout", async (req: Request, res: Response) => {
-  const { refreshToken } = req.body as { refreshToken?: string };
-  if (refreshToken) await logout(refreshToken);
-  res.json({ success: true });
+  try {
+    const { refreshToken } = req.body as { refreshToken?: string };
+    if (refreshToken) await logout(refreshToken);
+    res.json({ success: true });
+  } catch (e) {
+    console.error("[auth-service] POST /logout error:", e);
+    res.json({ success: true });
+  }
 });
 
 authRouter.post("/refresh", async (req: Request, res: Response) => {
@@ -42,19 +49,25 @@ authRouter.post("/refresh", async (req: Request, res: Response) => {
     if (!refreshToken) throw new Error("No token");
     const data = await refreshSession(refreshToken);
     res.json(data);
-  } catch {
+  } catch (e) {
+    console.error("[auth-service] POST /refresh error:", e);
     res.status(401).json({ error: "Unauthorized" });
   }
 });
 
 authRouter.get("/session", async (req: Request, res: Response) => {
-  const token = req.headers.authorization?.split(" ")[1];
-  if (!token) return res.status(401).json({ error: "Unauthorized" });
+  try {
+    const token = req.headers.authorization?.split(" ")[1];
+    if (!token) return res.status(401).json({ error: "Unauthorized" });
 
-  const session = await findSession(token);
-  if (!session || new Date(session.expiresAt) < new Date()) {
-    return res.status(401).json({ error: "Unauthorized" });
+    const session = await findSession(token);
+    if (!session || new Date(session.expiresAt) < new Date()) {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+
+    res.json({ userId: session.userId.toString() });
+  } catch (e) {
+    console.error("[auth-service] GET /session error:", e);
+    res.status(401).json({ error: "Unauthorized" });
   }
-
-  res.json({ userId: session.userId.toString() });
 });
