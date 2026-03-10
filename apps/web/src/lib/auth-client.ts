@@ -76,7 +76,3 @@ export async function getSessionUser(refreshToken: string): Promise<{ userId: st
     return null;
   }
 }
-
-export async function deleteUserSessions(userId: string): Promise<void> {
-  await fetch(`${AUTH_URL}/api/sessions/${userId}`, { method: "DELETE" });
-}
