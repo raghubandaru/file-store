@@ -124,7 +124,7 @@ Orchestrates file storage via a dual-mode adapter (S3 or local). Manages presign
 
 ## Web App (`apps/web`)
 
-Next.js 16 App Router application acting as a **Backend-for-Frontend (BFF)**. Server Components handle data fetching; API routes proxy calls to backend services, keeping credentials server-side.
+Next.js 16 App Router application acting as a **Backend-for-Frontend (BFF)**. Server Components handle data fetching; Server Actions handle auth form submissions; API routes handle file operations — keeping all credentials server-side.
 
 ### Routes
 
@@ -139,17 +139,20 @@ Next.js 16 App Router application acting as a **Backend-for-Frontend (BFF)**. Se
 
 ### API Routes (BFF layer)
 
-| Method | Path                | Description                      |
-| ------ | ------------------- | -------------------------------- |
-| POST   | `/api/auth/login`   | Proxy login, set cookies         |
-| POST   | `/api/auth/signup`  | Proxy signup, set cookies        |
-| POST   | `/api/auth/logout`  | Clear cookies, call Auth Service |
-| POST   | `/api/auth/refresh` | Rotate session tokens            |
-| GET    | `/api/auth/me`      | Current user from session        |
-| GET    | `/api/user`         | Fetch user profile               |
-| POST   | `/api/upload-url`   | Request presigned upload URL     |
-| POST   | `/api/save-file`    | Persist file metadata            |
-| DELETE | `/api/files/[id]`   | Delete a file                    |
+| Method | Path              | Description                  |
+| ------ | ----------------- | ---------------------------- |
+| POST   | `/api/upload-url` | Request presigned upload URL |
+| POST   | `/api/save-file`  | Persist file metadata        |
+| DELETE | `/api/files/[id]` | Delete a file                |
+| DELETE | `/api/user`       | Delete user account          |
+
+### Server Actions
+
+| Action         | Description                                                      |
+| -------------- | ---------------------------------------------------------------- |
+| `loginAction`  | Validate credentials, set refresh token cookie, redirect        |
+| `signupAction` | Create account, set refresh token cookie, redirect              |
+| `logoutAction` | Clear refresh token cookie, call Auth Service logout, redirect  |
 
 ### File Upload Flow
 
@@ -351,7 +354,7 @@ All BFF API routes check session before proceeding. Unauthenticated requests are
 
 ### Web App — Server Actions
 
-Server Actions (`loginAction`, `signupAction`) use Zod schemas for input validation before calling any service. Errors are returned as `ActionState` and displayed in the form — no exceptions bubble to the UI.
+Server Actions (`loginAction`, `signupAction`, `logoutAction`) handle auth flows server-side. `loginAction` and `signupAction` use Zod schemas for input validation before calling any service. Errors are returned as `ActionState` and displayed in the form — no exceptions bubble to the UI.
 
 ```ts
 // Validation failure
