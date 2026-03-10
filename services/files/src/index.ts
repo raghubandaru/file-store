@@ -28,22 +28,19 @@ app.use("/api/files", filesRouter);
 app.use("/api/upload-url", uploadRouter);
 
 if (local) {
-  const { writeLocalUpload } = require("./lib/storage/local") as typeof import("./lib/storage/local");
+  const { writeLocalUpload } =
+    require("./lib/storage/local") as typeof import("./lib/storage/local");
 
-  app.put(
-    "/api/local-upload/*",
-    express.raw({ type: "*/*", limit: "10mb" }),
-    async (req, res) => {
-      const key = req.path.slice("/api/local-upload/".length);
-      try {
-        await writeLocalUpload(key, req.body as Buffer);
-        res.json({ ok: true });
-      } catch (e) {
-        console.error("[files-service] local-upload error:", e);
-        res.status(500).json({ error: "Upload failed" });
-      }
+  app.put("/api/local-upload/*", express.raw({ type: "*/*", limit: "10mb" }), async (req, res) => {
+    const key = req.path.slice("/api/local-upload/".length);
+    try {
+      await writeLocalUpload(key, req.body as Buffer);
+      res.json({ ok: true });
+    } catch (e) {
+      console.error("[files-service] local-upload error:", e);
+      res.status(500).json({ error: "Upload failed" });
     }
-  );
+  });
 
   app.use("/uploads", express.static(join(process.cwd(), "uploads")));
 
