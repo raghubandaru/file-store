@@ -80,6 +80,11 @@
   font-size: var(--font-size-base);
 }
 
+.emptyLink {
+  color: var(--color-brand);
+  text-decoration: underline;
+}
+
 .dialog {
   border: none;
   border-radius: var(--radius-xl);

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Link from "next/link";
 import { Button, ErrorMessage, ImagePreview } from "@file-store/design-system";
 import styles from "./FileList.module.css";
 
@@ -82,7 +83,13 @@ export function FileList({ files, onDelete }: FileListProps) {
   if (files.length === 0) {
     return (
       <div className={styles.empty}>
-        <p>No files uploaded yet.</p>
+        <p>
+          No files uploaded yet.{" "}
+          <Link href="/file/upload" className={styles.emptyLink}>
+            Upload a file
+          </Link>{" "}
+          to get started.
+        </p>
       </div>
     );
   }
