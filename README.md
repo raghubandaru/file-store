@@ -23,17 +23,17 @@ file-store/
 
 ### Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | Next.js 16, React 19, App Router |
-| Backend | Express.js 4 (three microservices) |
-| Database | MongoDB + Mongoose (three separate DBs) |
-| Storage | AWS S3 (with local filesystem fallback) |
-| Monorepo | pnpm workspaces + Turborepo |
-| Language | TypeScript 5 (strict) |
-| Validation | Zod 4 |
-| Containerization | Docker + Docker Compose |
-| CI/CD | GitHub Actions → EC2 |
+| Layer            | Technology                              |
+| ---------------- | --------------------------------------- |
+| Frontend         | Next.js 16, React 19, App Router        |
+| Backend          | Express.js 4 (three microservices)      |
+| Database         | MongoDB + Mongoose (three separate DBs) |
+| Storage          | AWS S3 (with local filesystem fallback) |
+| Monorepo         | pnpm workspaces + Turborepo             |
+| Language         | TypeScript 5 (strict)                   |
+| Validation       | Zod 4                                   |
+| Containerization | Docker + Docker Compose                 |
+| CI/CD            | GitHub Actions → EC2                    |
 
 ---
 
@@ -74,13 +74,13 @@ Handles authentication, JWT issuance, and session lifecycle. Delegates user cred
 
 **Endpoints:**
 
-| Method | Path | Description |
-|---|---|---|
-| POST | `/api/signup` | Register and receive tokens |
-| POST | `/api/login` | Authenticate and receive tokens |
-| POST | `/api/logout` | Invalidate refresh token |
-| POST | `/api/refresh` | Rotate refresh token |
-| GET | `/api/session` | Validate access token → userId |
+| Method | Path           | Description                     |
+| ------ | -------------- | ------------------------------- |
+| POST   | `/api/signup`  | Register and receive tokens     |
+| POST   | `/api/login`   | Authenticate and receive tokens |
+| POST   | `/api/logout`  | Invalidate refresh token        |
+| POST   | `/api/refresh` | Rotate refresh token            |
+| GET    | `/api/session` | Validate access token → userId  |
 
 **Session model:** 30-day refresh tokens stored in MongoDB with TTL auto-cleanup.
 
@@ -90,12 +90,12 @@ Manages user accounts and credentials. Only called internally by the Auth Servic
 
 **Endpoints:**
 
-| Method | Path | Description |
-|---|---|---|
-| POST | `/api/users` | Create user (409 if email exists) |
-| POST | `/api/users/verify` | Verify email + password |
-| GET | `/api/users/:userId` | Get user profile |
-| DELETE | `/api/users/:userId` | Delete user account |
+| Method | Path                 | Description                       |
+| ------ | -------------------- | --------------------------------- |
+| POST   | `/api/users`         | Create user (409 if email exists) |
+| POST   | `/api/users/verify`  | Verify email + password           |
+| GET    | `/api/users/:userId` | Get user profile                  |
+| DELETE | `/api/users/:userId` | Delete user account               |
 
 Passwords are hashed with bcrypt.
 
@@ -105,17 +105,18 @@ Orchestrates file storage via a dual-mode adapter (S3 or local). Manages presign
 
 **Endpoints:**
 
-| Method | Path | Description |
-|---|---|---|
-| GET | `/api/files?userId=` | List user files |
-| POST | `/api/files` | Save file metadata |
-| DELETE | `/api/files/:fileId` | Delete a file |
-| DELETE | `/api/files/user` | Delete all files for a user |
-| POST | `/api/upload-url` | Get presigned S3 or local upload URL |
-| PUT | `/api/local-upload/*` | Binary upload (local mode only) |
-| GET | `/uploads/*` | Static file serving (local mode only) |
+| Method | Path                  | Description                           |
+| ------ | --------------------- | ------------------------------------- |
+| GET    | `/api/files?userId=`  | List user files                       |
+| POST   | `/api/files`          | Save file metadata                    |
+| DELETE | `/api/files/:fileId`  | Delete a file                         |
+| DELETE | `/api/files/user`     | Delete all files for a user           |
+| POST   | `/api/upload-url`     | Get presigned S3 or local upload URL  |
+| PUT    | `/api/local-upload/*` | Binary upload (local mode only)       |
+| GET    | `/uploads/*`          | Static file serving (local mode only) |
 
 **Storage adapters:**
+
 - **S3:** Presigned PUT URLs (60s expiry), signed GET URLs (1h expiry)
 - **Local:** Disk-based, served as static files from `./uploads/`
 
@@ -127,28 +128,28 @@ Next.js 16 App Router application acting as a **Backend-for-Frontend (BFF)**. Se
 
 ### Routes
 
-| Route | Description |
-|---|---|
-| `/` | Redirects to profile (authenticated) or login |
-| `/auth/login` | Login page |
-| `/auth/signup` | Sign-up page |
-| `/user/profile` | User profile + account deletion |
-| `/file/upload` | File upload page |
-| `/file/list` | Uploaded files list |
+| Route           | Description                                   |
+| --------------- | --------------------------------------------- |
+| `/`             | Redirects to profile (authenticated) or login |
+| `/auth/login`   | Login page                                    |
+| `/auth/signup`  | Sign-up page                                  |
+| `/user/profile` | User profile + account deletion               |
+| `/file/upload`  | File upload page                              |
+| `/file/list`    | Uploaded files list                           |
 
 ### API Routes (BFF layer)
 
-| Method | Path | Description |
-|---|---|---|
-| POST | `/api/auth/login` | Proxy login, set cookies |
-| POST | `/api/auth/signup` | Proxy signup, set cookies |
-| POST | `/api/auth/logout` | Clear cookies, call Auth Service |
-| POST | `/api/auth/refresh` | Rotate session tokens |
-| GET | `/api/auth/me` | Current user from session |
-| GET | `/api/user` | Fetch user profile |
-| POST | `/api/upload-url` | Request presigned upload URL |
-| POST | `/api/save-file` | Persist file metadata |
-| DELETE | `/api/files/[id]` | Delete a file |
+| Method | Path                | Description                      |
+| ------ | ------------------- | -------------------------------- |
+| POST   | `/api/auth/login`   | Proxy login, set cookies         |
+| POST   | `/api/auth/signup`  | Proxy signup, set cookies        |
+| POST   | `/api/auth/logout`  | Clear cookies, call Auth Service |
+| POST   | `/api/auth/refresh` | Rotate session tokens            |
+| GET    | `/api/auth/me`      | Current user from session        |
+| GET    | `/api/user`         | Fetch user profile               |
+| POST   | `/api/upload-url`   | Request presigned upload URL     |
+| POST   | `/api/save-file`    | Persist file metadata            |
+| DELETE | `/api/files/[id]`   | Delete a file                    |
 
 ### File Upload Flow
 
@@ -188,11 +189,11 @@ apps/web/src/
 
 Three separate MongoDB databases, one per service:
 
-| Database | Service | Collections |
-|---|---|---|
-| `filestore_auth` | Auth | `sessions` |
-| `filestore_users` | Users | `users` |
-| `filestore_files` | Files | `files` |
+| Database          | Service | Collections |
+| ----------------- | ------- | ----------- |
+| `filestore_auth`  | Auth    | `sessions`  |
+| `filestore_users` | Users   | `users`     |
+| `filestore_files` | Files   | `files`     |
 
 ### File Key Format
 
@@ -243,6 +244,12 @@ ALLOWED_ORIGIN=http://localhost:3000
 PORT_AUTH=3001
 PORT_USERS=3002
 PORT_FILES=3003
+
+# Fallback
+HTTPS_ENABLED=false               # or true (in production)
+
+# Environment
+NODE_ENV=development              # or production
 ```
 
 ### Local Development
@@ -292,3 +299,71 @@ services/files
 ├── @file-store/schemas        (workspace:*)
 └── @file-store/types          (workspace:*)
 ```
+
+---
+
+## Error Handling
+
+### Service Startup
+
+All three services validate required environment variables before `app.listen()`. If any are missing the process exits with code `1`, producing a clear error log rather than a confusing runtime failure.
+
+```
+[users-service] Missing required environment variable: DB_USERS
+```
+
+### Backend Services (Auth / Users / Files)
+
+Every route handler wraps its logic in `try/catch`. Errors thrown by service and repository layers are caught at the route boundary and converted to HTTP responses — they never crash the server.
+
+| Scenario                           | HTTP Status | Response                                                  |
+| ---------------------------------- | ----------- | --------------------------------------------------------- |
+| Invalid credentials (login/verify) | 401         | `{ error: "Invalid credentials" }`                        |
+| Duplicate email on signup          | 409         | `{ error: "User exists" }`                                |
+| Resource not found                 | 404         | `{ error: "Not found" }`                                  |
+| Missing required body fields       | 400         | `{ error: "... required" }`                               |
+| File not found on delete           | 400         | `{ error: "File not found" }`                             |
+| No/expired refresh token           | 401         | `{ error: "Unauthorized" }`                               |
+| Unhandled internal errors          | 500         | `{ error: "Internal error" }`                             |
+| Logout failure                     | 200         | Still returns `{ success: true }` — logout is best-effort |
+
+### Orphan File Cleanup
+
+When a file is uploaded to storage (S3 or local) but the subsequent MongoDB `insertFile` fails, the service automatically deletes the stored object to avoid orphaned files:
+
+```
+upload to storage → insertFile fails → storage.deleteObject(key) → rethrow error
+```
+
+If the cleanup itself fails, it is logged but does not suppress the original error.
+
+### Web App — BFF API Routes
+
+All BFF API routes check session before proceeding. Unauthenticated requests are rejected immediately without hitting any downstream service.
+
+| Scenario                                      | HTTP Status                  |
+| --------------------------------------------- | ---------------------------- |
+| Missing or invalid session cookie             | 401                          |
+| Failed Zod validation (`uploadRequestSchema`) | 400 with first issue message |
+| Missing required file fields on save          | 400                          |
+| Downstream service failure                    | 500                          |
+| File delete — file not found or not owned     | 400                          |
+
+### Web App — Server Actions
+
+Server Actions (`loginAction`, `signupAction`) use Zod schemas for input validation before calling any service. Errors are returned as `ActionState` and displayed in the form — no exceptions bubble to the UI.
+
+```ts
+// Validation failure
+if (!result.success) return { errors: fieldErrors(result.error) }
+
+// Service failure
+catch (e) {
+  return { errors: { general: e instanceof Error ? e.message : "Something went wrong" } }
+}
+```
+
+### Session Management
+
+- Refresh tokens have a 30-day TTL and are automatically removed from MongoDB via a TTL index — no manual cleanup needed.
+- `getSessionUserId()` returns `null` (never throws) if the cookie is absent or the Auth Service returns a non-2xx response, allowing pages to redirect gracefully.
