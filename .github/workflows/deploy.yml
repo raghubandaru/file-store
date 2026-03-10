@@ -20,4 +20,3 @@ jobs:
             git pull
             docker compose --env-file .env.production build --no-cache
             docker compose --env-file .env.production up -d
-            sudo systemctl reload nginx
