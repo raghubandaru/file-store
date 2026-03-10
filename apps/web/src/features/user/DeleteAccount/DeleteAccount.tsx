@@ -24,6 +24,7 @@ export function DeleteAccount() {
       return;
     }
 
+    router.refresh();
     router.push("/auth/login");
   }
 

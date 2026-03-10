@@ -87,6 +87,7 @@ export function UploadForm() {
       }),
     });
 
+    router.refresh();
     router.push("/file/list");
   }
 
