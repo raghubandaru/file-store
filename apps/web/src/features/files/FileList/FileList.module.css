@@ -53,7 +53,9 @@
 }
 
 .filename {
-  composes: truncate from '../../../utils.module.css';
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: var(--text-primary);

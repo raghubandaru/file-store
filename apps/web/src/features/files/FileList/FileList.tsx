@@ -1,9 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Button } from "../../atoms/Button";
-import { ErrorMessage } from "../../atoms/ErrorMessage";
-import { ImagePreview } from "../../molecules/ImagePreview";
+import { Button, ErrorMessage, ImagePreview } from "@file-store/design-system";
 import styles from "./FileList.module.css";
 
 export type FileItem = {

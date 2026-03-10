@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AuthForm from "@/features/components/AuthForm/AuthForm";
+import AuthForm from "@/features/auth/AuthForm/AuthForm";
 
 export const metadata: Metadata = { title: "Sign up" };
 import { signupAction } from "@/actions/auth";

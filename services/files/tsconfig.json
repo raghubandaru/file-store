@@ -6,7 +6,12 @@
     "moduleResolution": "node",
     "outDir": "./dist",
     "rootDir": "./src",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "@file-store/types": ["../../packages/types"],
+      "@file-store/schemas": ["../../packages/schemas"],
+      "@file-store/schemas/*": ["../../packages/schemas/*"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

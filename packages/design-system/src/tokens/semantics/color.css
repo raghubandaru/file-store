@@ -8,7 +8,7 @@
 
   --interactive-primary: var(--teal-600);
 
-  --overlay-backdrop: rgba(0, 0, 0, 0.55);
-  --overlay-scrim-default: rgba(0, 0, 0, 0.45);
-  --overlay-scrim-hover: rgba(0, 0, 0, 0.7);
+  --overlay-backdrop: color-mix(in srgb, var(--black) 55%, transparent);
+  --overlay-scrim-default: color-mix(in srgb, var(--black) 45%, transparent);
+  --overlay-scrim-hover: color-mix(in srgb, var(--black) 70%, transparent);
 }

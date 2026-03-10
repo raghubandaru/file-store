@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Button, Main, Navbar } from "@file-store/design-system";
 import { getSessionUserId } from "@/services/auth/server";
-import { NavLinks } from "@/features/components/NavLinks/NavLinks";
+import { NavLinks } from "@/features/nav/NavLinks/NavLinks";
 import "./globals.css";
 
 export const metadata: Metadata = {

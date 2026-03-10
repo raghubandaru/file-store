@@ -30,33 +30,3 @@
   margin: 0;
 }
 
-.dangerZone {
-  border: 1px solid var(--profile-danger-border-color);
-  border-radius: var(--profile-danger-radius);
-  padding: var(--profile-danger-padding);
-}
-
-.dangerTitle {
-  margin-block-end: var(--profile-confirm-gap);
-  color: var(--profile-danger-title-color);
-}
-
-.error {
-  margin-block-end: var(--profile-confirm-gap);
-}
-
-.confirmRow {
-  display: flex;
-  flex-direction: column;
-  gap: var(--profile-confirm-gap);
-}
-
-.confirmText {
-  margin: 0;
-}
-
-.confirmActions {
-  display: flex;
-  gap: var(--profile-actions-gap);
-}
-

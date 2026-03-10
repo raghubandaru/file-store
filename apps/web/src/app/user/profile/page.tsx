@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { PageHeading } from "@file-store/design-system";
 import { getSessionUserId } from "@/services/auth/server";
 import { getUser } from "@/services/user/service";
-import { DeleteAccount } from "./delete-account";
+import { DeleteAccount } from "@/features/user/DeleteAccount/DeleteAccount";
 import styles from "./profile.module.css";
 
 export const dynamic = "force-dynamic";

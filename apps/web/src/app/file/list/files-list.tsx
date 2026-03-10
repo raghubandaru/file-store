@@ -2,7 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import type { FileItem as TypesFileItem } from "@file-store/types";
-import { FileList, PageHeading } from "@file-store/design-system";
+import { PageHeading } from "@file-store/design-system";
+import { FileList } from "@/features/files/FileList/FileList";
 
 // Map @file-store/types FileItem (createdAt) to design-system FileItem (uploadedAt)
 function toDisplayItem(file: TypesFileItem) {

@@ -3,7 +3,7 @@ export const metadata: Metadata = { title: "Upload" };
 
 import { redirect } from "next/navigation";
 import { getSessionUserId } from "@/services/auth/server";
-import { UploadForm } from "./upload-form";
+import { UploadForm } from "@/features/files/UploadForm/UploadForm";
 
 export default async function UploadPage() {
   const userId = await getSessionUserId();

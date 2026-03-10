@@ -21,6 +21,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@file-store/design-system": ["../../packages/design-system/src"],
+      "@file-store/design-system/*": ["../../packages/design-system/src/*"],
       "@file-store/schemas": ["../../packages/schemas"],
       "@file-store/schemas/*": ["../../packages/schemas/*"],
       "@file-store/types": ["../../packages/types"]

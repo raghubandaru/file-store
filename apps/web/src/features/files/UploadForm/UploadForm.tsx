@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button, ErrorMessage, FileDropzone, PageHeading } from "@file-store/design-system";
 import { MAX_FILE_SIZE, ALLOWED_CONTENT_TYPES } from "@file-store/schemas/upload";
-import styles from "./upload-form.module.css";
+import styles from "./UploadForm.module.css";
 
 type Status = "idle" | "preview" | "uploading";
 

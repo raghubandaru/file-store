@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button, ErrorMessage } from "@file-store/design-system";
-import styles from "./profile.module.css";
+import styles from "./DeleteAccount.module.css";
 
 export function DeleteAccount() {
   const router = useRouter();

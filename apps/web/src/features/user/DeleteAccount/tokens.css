@@ -1,0 +1,8 @@
+:root {
+  --profile-danger-border-color: var(--color-error);
+  --profile-danger-radius: var(--radius-md);
+  --profile-danger-padding: 0.9375rem;
+  --profile-danger-title-color: var(--color-error);
+  --profile-confirm-gap: var(--space-1);
+  --profile-actions-gap: var(--space-075);
+}
