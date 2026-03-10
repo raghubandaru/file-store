@@ -1,5 +1,5 @@
 :root {
-  --upload-form-min-height: 30rem;
+  --upload-form-min-height: 18.75rem;
   --upload-form-gap: var(--space-1);
   --upload-form-uploading-padding: var(--space-2);
   --upload-form-error-color: var(--color-error);

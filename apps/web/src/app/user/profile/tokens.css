@@ -4,10 +4,10 @@
   --profile-field-row-gap: var(--space-1);
   --profile-field-font-size: var(--font-size-lg);
   --profile-field-label-weight: var(--font-weight-semibold);
-  --profile-field-label-width: 5rem;
+  --profile-field-label-width: 3.125rem;
   --profile-danger-border-color: var(--color-error);
   --profile-danger-radius: var(--radius-md);
-  --profile-danger-padding: 1.5rem;
+  --profile-danger-padding: 0.9375rem;
   --profile-danger-title-color: var(--color-error);
   --profile-error-color: var(--color-error);
   --profile-confirm-gap: var(--space-1);

@@ -1,7 +1,7 @@
 :root {
   --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.8rem;
-  --radius-xl: 1.2rem;
+  --radius-md: 0.3125rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
   --radius-full: 100px;
 }

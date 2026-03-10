@@ -1,10 +1,10 @@
 :root {
-  --space-075: 0.75rem;
-  --space-1: 1rem;
-  --space-2: 2rem;
-  --space-3: 3rem;
-  --space-4: 4rem;
-  --space-6: 6rem;
+  --space-075: 0.5rem;
+  --space-1: 0.625rem;
+  --space-2: 1.25rem;
+  --space-3: 1.875rem;
+  --space-4: 2.5rem;
+  --space-6: 3.75rem;
 
-  --layout-max-width: 60rem;
+  --layout-max-width: 37.5rem;
 }

@@ -1,11 +1,11 @@
 .errorMessage {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.3125rem;
   background-color: var(--color-error-bg);
   color: var(--color-error-text);
   border-radius: var(--radius-full);
-  padding: 0.4rem 1rem;
+  padding: 0.25rem 0.625rem;
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.05em;

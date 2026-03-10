@@ -3,7 +3,7 @@
   --dialog-backdrop: var(--overlay-backdrop);
   --dialog-close-bg: var(--overlay-scrim-default);
   --dialog-close-bg-hover: var(--overlay-scrim-hover);
-  --dialog-max-width: 48rem;
-  --dialog-image-min-height: 20rem;
-  --dialog-image-max-height: 40rem;
+  --dialog-max-width: 30rem;
+  --dialog-image-min-height: 12.5rem;
+  --dialog-image-max-height: 25rem;
 }
