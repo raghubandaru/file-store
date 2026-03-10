@@ -5,4 +5,5 @@
   --card-padding-md: var(--space-4) var(--space-3);
   --card-padding-sm: var(--space-4) var(--space-1);
   --page-header-margin: var(--space-4) 0 var(--space-2) 0;
+  --page-header-title-margin: 0.5rem;
 }

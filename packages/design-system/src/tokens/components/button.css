@@ -19,4 +19,5 @@
   --button-destructive-outline-color: var(--color-danger);
   --button-destructive-outline-border: 1px solid var(--color-danger);
   --button-destructive-focus-outline: 3px solid var(--color-danger);
+  --button-destructive-outline-hover-bg: rgba(185, 28, 28, 0.06);
 }

@@ -25,7 +25,7 @@
 }
 
 .pageHeader h1 {
-  margin-bottom: 5px;
+  margin-bottom: var(--page-header-title-margin);
 }
 
 .pageHeader p {

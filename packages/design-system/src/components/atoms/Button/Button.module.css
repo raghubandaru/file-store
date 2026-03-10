@@ -75,7 +75,7 @@
 }
 
 .button[data-variant='destructive-outline']:hover {
-  background: rgba(185, 28, 28, 0.06);
+  background: var(--button-destructive-outline-hover-bg);
 }
 
 .button[data-variant='destructive-outline']:focus-visible {

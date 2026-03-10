@@ -2,6 +2,7 @@
 @import "./primitives/spacing.css";
 @import "./primitives/typography.css";
 @import "./primitives/radius.css";
+@import "./primitives/shadow.css";
 
 @import "./semantics/color.css";
 @import "./semantics/surface.css";
@@ -14,3 +15,5 @@
 @import "./components/navbar.css";
 @import "./components/main.css";
 @import "./components/dropzone.css";
+@import "./components/dialog.css";
+@import "./components/filelist.css";

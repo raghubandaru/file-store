@@ -7,4 +7,8 @@
   --color-error-text: var(--red-700);
 
   --interactive-primary: var(--teal-600);
+
+  --overlay-backdrop: rgba(0, 0, 0, 0.55);
+  --overlay-scrim-default: rgba(0, 0, 0, 0.45);
+  --overlay-scrim-hover: rgba(0, 0, 0, 0.7);
 }

@@ -1,0 +1,9 @@
+:root {
+  --dialog-shadow: var(--shadow-lg);
+  --dialog-backdrop: var(--overlay-backdrop);
+  --dialog-close-bg: var(--overlay-scrim-default);
+  --dialog-close-bg-hover: var(--overlay-scrim-hover);
+  --dialog-max-width: 48rem;
+  --dialog-image-min-height: 20rem;
+  --dialog-image-max-height: 40rem;
+}
