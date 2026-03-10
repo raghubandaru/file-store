@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Button, Form } from "@file-store/design-system";
+import { usePathname, useRouter } from "next/navigation";
+import { Button } from "@file-store/design-system";
 import { logoutAction } from "@/actions/auth";
 
 type NavLinksProps = {
@@ -19,15 +19,20 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
 }
 
 export function NavLinks({ userId }: NavLinksProps) {
+  const router = useRouter();
+
+  async function handleLogout() {
+    await logoutAction();
+    router.refresh();
+  }
+
   if (userId) {
     return (
       <div>
         <NavLink href="/file/upload">Upload</NavLink>
         <NavLink href="/file/list">Files</NavLink>
         <NavLink href="/user/profile">Profile</NavLink>
-        <Form action={logoutAction} className="inlineBlock">
-          <Button type="submit">Logout</Button>
-        </Form>
+        <Button onClick={handleLogout}>Logout</Button>
       </div>
     );
   }

@@ -82,6 +82,4 @@ export async function logoutAction() {
   if (refreshToken) await logoutUser(refreshToken);
 
   cookieStore.delete("refreshToken");
-
-  redirect("/auth/login");
 }
