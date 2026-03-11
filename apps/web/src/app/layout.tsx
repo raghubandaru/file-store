@@ -6,7 +6,7 @@ import { NavLinks } from "@/features/nav/NavLinks/NavLinks";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "EA File Store", template: "%s | EA File Store" },
+  title: { default: "File Store", template: "%s | File Store" },
   description: "Ability to upload and store files",
 };
 
@@ -25,11 +25,11 @@ export default async function RootLayout({
         </a>
         <Navbar>
           <Button as={Link} href="/" variant="brand">
-            EA
+            FS
           </Button>
           <NavLinks userId={userId} />
         </Navbar>
-        <Main title="EA File Store" subtitle="Ability to upload and store files">
+        <Main title="File Store" subtitle="Ability to upload and store files">
           {children}
         </Main>
       </body>
